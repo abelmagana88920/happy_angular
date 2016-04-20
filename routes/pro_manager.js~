@@ -1,0 +1,5 @@
+exports.pro_manager = function(req, res){
+  res.render('pro_manager', { title: 'Express' });
+
+  
+};

@@ -1,0 +1,15 @@
+
+	
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="example/bootstrap.min.css" />
+<div ng-app="example">
+
+
+  <script src="bower_components/angular/angular.js"></script>
+	<script src="dist/angular-scroll-animate.js"></script>
+	<script src="example/app.js"></script>
+	<script src="example/example-controller.js"></script>
+  <div ng-include="'example/example.html'" ng-controller="ExampleCtrl"> </div>
+
+</div>
+

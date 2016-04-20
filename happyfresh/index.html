@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title -->
+    <title>HAPPY FRESH</title>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.css" />
+
+    <!-- App styles -->
+    <!--
+    <link rel="stylesheet" href="bower_components/bootstrap/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/fonts/pe-icon-7-stroke/css/helper.css" /> -->
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <!-- wow  -->
+    <link rel="stylesheet" href="bower_components/wow/animate.css">
+  	<link rel="stylesheet" href="bower_components/wow/site.css">
+ 	 <style>
+          .wow:first-child {
+                 visibility: hidden;
+  	  }
+  	</style>
+     <!-- wow -->
+
+</head>
+<body class="fixed-navbar fixed-sidebar">
+
+<!-- Simple splash screen-->
+<!--
+<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Homer - Responsive Admin Theme</h1><p>Special Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div> -->
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Header -->
+<div id="header">
+    <div class="color-line">
+    </div>
+    <div id="logo" class="light-version">
+       <img src="images/logodark.svg" width=110>
+      
+    </div>
+    <nav role="navigation">
+        <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+        <div class="small-logo">
+            <span class="text-primary">Happy Fresh</span>
+        </div>
+        <form role="search" class="navbar-form-custom" method="post" action="#">
+            <div class="form-group">
+                <input type="text" placeholder="Search something special" class="form-control" name="search">
+            </div>
+        </form>
+      
+        <div class="navbar-right">
+            <ul class="nav navbar-nav no-borders">
+               
+               
+                <li>
+                    <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                        <i class="pe-7s-mail"></i>
+                        <span class="label label-success">4</span>
+                    </a>
+                    <ul class="dropdown-menu hdropdown animated flipInX">
+                        
+                       
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" id="sidebar" class="right-sidebar-toggle">
+                        <i class="pe-7s-upload pe-7s-news-paper"></i>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="login.html">
+                        <i class="pe-7s-upload pe-rotate-90"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Navigation -->
+<aside id="menu">
+
+ 
+    <div id="navigation"> 
+        <div class="profile-picture">
+           
+
+            <div class="stats-label text-color">
+                
+
+       
+            </div>
+        </div>
+
+
+<div class='cssmenu'>
+<ul>
+   <li><a href='#'></a></li>
+    <li><a href='#'><span>LIST & FAVORITES</span></a></li>
+	   <li class='active has-sub nav-second-level'><a href='#'><span>Recommended</span></a>
+	      <ul >
+		 <li class='has-sub' ><a href='#'><span>Product 1</span></a>
+		    <ul>
+		       <li><a href='#'><span>Sub Product</span></a></li>
+		       <li class='last'><a href='#'><span>Sub Product</span></a></li>
+		    </ul>
+		 </li>
+		 <li class='has-sub'><a href='#'><span>Product 2</span></a>
+		    <ul>
+		       <li style="z-index:10;"><a href='#'><span>Sub Product</span></a></li>
+		       <li class='last'><a href='#'><span>Sub Product</span></a></li>
+		    </ul>
+		 </li>
+	      </ul>
+	   </li>
+  	 <li class="nav-second-level "><a href="#">My Favorites</a></li>
+   <li><a href='#'><span>CATEGORIES</span></a></li>
+   	     <li class="nav-second-level"><a href="panels.html">Specials</a></li>      
+             <li class="nav-second-level"><a href="buttons.html">Fresh Produce</a></li>
+             <li class="nav-second-level"><a href="components.html">Meat & Seafood</a></li>
+	     <li class="nav-second-level"><a href="components.html">Deli</a></li>
+             <li class="nav-second-level"><a href="components.html">Bakery</a></li>
+             <li class="nav-second-level"><a href="components.html">Dairy</a></li>
+             <li class="nav-second-level"><a href="components.html">Dry & Canned Goods</a></li>
+             <li class="nav-second-level"><a href="components.html">Pantry</a></li>
+             <li class="nav-second-level"><a href="components.html">Beverages</a></li>
+            <li class="nav-second-level"><a href="components.html">Snacks</a></li>
+            <li class="nav-second-level"><a href="components.html">Frozen</a></li>
+           <li class="nav-second-level"><a href="components.html">Health & Beauty</a></li>
+           <li class="nav-second-level"><a href="components.html">Babies</a></li>
+           <li class="nav-second-level"><a href="components.html">Pets</a></li>
+           <li class="nav-second-level"><a href="components.html">Household</a></li>
+          <li class="nav-second-level"><a href="components.html">Ready to eat</a></li>
+   
+   
+   
+</ul>
+</div>
+      
+     
+        
+        
+    </div>
+    
+</aside>
+
+
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+       <div ng-view="" id="ng-view"></div>
+
+        
+
+
+     <!--
+
+         <div class="hpanel">
+        <div class="panel-body">
+            <a class="small-header-action" href="">
+                <div class="clip-header">
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </a>
+
+            <div id="hbreadcrumb" class="pull-right">
+                
+            </div>
+             <div id="hbreadcrumb" class="pull-left">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="index.html">Categories</a></li>
+                    <li class="active">
+                        <span>Specials</span>
+                    </li>
+                 
+                </ol>
+            </div>
+            
+           
+        </div>
+    </div>
+
+
+    <div class="content animate-panel">
+    
+      
+        <div class="row">
+            
+            
+
+            <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+            
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                               
+                               <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+   
+             <div class="col-md-3 wow fadeInDown" data-wow-duration="600ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                              <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-3 wow fadeInDown" data-wow-duration="900ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                 <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-3 wow fadeInDown" data-wow-duration="1200ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                 <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                 <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+              <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                              <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                 <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body img-responsive">
+
+                         <div class="row visible-md visible-lg">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                        </div>
+                      
+                        <div class="row visible-xs visible-sm">
+                            <div class="col-xs-6">
+                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                            </div>
+                            <div class="col-xs-6" >
+                                <div><br><br><br><br></div>
+                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
+                               <h5 class="product_price">฿135.00 / packet</h5>
+                              <br>Baby Wipes 80 Sheets
+                            
+                            </div>
+                        </div>
+                    </div>
+                   
+
+
+                    <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                        Mamy Poko Baby Wipes 80 Sheets
+                               <div class="product_price">฿135.00 / packet</div>
+                                <div class="cart">
+                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
+                                   
+                                       <span class="cart-quantity"> 0 </span>
+                                  
+                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                               </div>
+                    </div>
+                </div>
+            </div>
+
+
+           
+           
+               
+            
+           
+            
+            
+            
+              
+          
+        </div>
+       
+           
+           
+    </div>
+
+   
+
+  -->
+
+    <!-- Footer-->
+    <footer class="footer">
+        <span class="pull-right">
+            Example text
+        </span>
+        Company 2015-2020
+    </footer>
+
+</div>
+
+<!-- Vendor scripts -->
+
+
+ 
+
+ <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular/ui-bootstrap-tpls-0.10.0.min.js"></script>
+ <script src="bower_components/angular/angular-route.min.js"></script>
+  <script src="bower_components/angular/angular-animate.min.js"></script>
+
+ 
+ <!-- AngularJS custom codes -->
+<script src="app/app_and_route.js"></script>
+<script src="app/data.js"></script>
+<script src="app/directives.js"></script>
+<script src="app/services.js"></script>
+<script src="app/filter.js"></script>
+
+<script src="app/freshCtrl.js"></script>
+
+<script src="app/templateEditCtrl.js"></script>
+<!-- App scripts -->
+
+ 
+
+<!-- WOW SCRIPTS -->
+  <script src="wow/wow.js"></script>
+  <script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+      }
+    );
+    wow.init();
+   
+  </script>
+<!--  wow -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+

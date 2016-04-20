@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title -->
+    <title>HOMER | WebApp admin theme</title>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="vendor/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <!-- wow  -->
+      <link rel="stylesheet" href="wow/animate.css">
+  	<link rel="stylesheet" href="wow/site.css">
+ 	 <style>
+          .wow:first-child {
+                 visibility: hidden;
+  	  }
+  	</style>
+     <!-- wow -->
+
+</head>
+<body class="fixed-navbar fixed-sidebar">
+
+<!-- Simple splash screen-->
+<!--
+<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Homer - Responsive Admin Theme</h1><p>Special Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div> -->
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Header -->
+<div id="header">
+    <div class="color-line">
+    </div>
+    <div id="logo" class="light-version">
+       <img src="images/logodark.svg" width=110>
+      
+    </div>
+    <nav role="navigation">
+        <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+        <div class="small-logo">
+            <span class="text-primary">Happy Fresh</span>
+        </div>
+        <form role="search" class="navbar-form-custom" method="post" action="#">
+            <div class="form-group">
+                <input type="text" placeholder="Search something special" class="form-control" name="search">
+            </div>
+        </form>
+      
+        <div class="navbar-right">
+            <ul class="nav navbar-nav no-borders">
+               
+               
+                <li>
+                    <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                        <i class="pe-7s-mail"></i>
+                        <span class="label label-success">4</span>
+                    </a>
+                    <ul class="dropdown-menu hdropdown animated flipInX">
+                        
+                       
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" id="sidebar" class="right-sidebar-toggle">
+                        <i class="pe-7s-upload pe-7s-news-paper"></i>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="login.html">
+                        <i class="pe-7s-upload pe-rotate-90"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Navigation -->
+<aside id="menu">
+
+ 
+    <div id="navigation"> 
+        <div class="profile-picture">
+           
+
+            <div class="stats-label text-color">
+                
+
+       
+            </div>
+        </div>
+
+
+<div class='cssmenu'>
+<ul>
+   <li><a href='#'></a></li>
+    <li><a href='#'><span>LIST & FAVORITES</span></a></li>
+	   <li class='active has-sub nav-second-level'><a href='#'><span>Recommended</span></a>
+	      <ul >
+		 <li class='has-sub' ><a href='#'><span>Product 1</span></a>
+		    <ul>
+		       <li><a href='#'><span>Sub Product</span></a></li>
+		       <li class='last'><a href='#'><span>Sub Product</span></a></li>
+		    </ul>
+		 </li>
+		 <li class='has-sub'><a href='#'><span>Product 2</span></a>
+		    <ul>
+		       <li style="z-index:10;"><a href='#'><span>Sub Product</span></a></li>
+		       <li class='last'><a href='#'><span>Sub Product</span></a></li>
+		    </ul>
+		 </li>
+	      </ul>
+	   </li>
+  	 <li class="nav-second-level "><a href="#">My Favorites</a></li>
+   <li><a href='#'><span>CATEGORIES</span></a></li>
+   	     <li class="nav-second-level"><a href="panels.html">Specials</a></li>      
+             <li class="nav-second-level"><a href="buttons.html">Fresh Produce</a></li>
+             <li class="nav-second-level"><a href="components.html">Meat & Seafood</a></li>
+	     <li class="nav-second-level"><a href="components.html">Deli</a></li>
+             <li class="nav-second-level"><a href="components.html">Bakery</a></li>
+             <li class="nav-second-level"><a href="components.html">Dairy</a></li>
+             <li class="nav-second-level"><a href="components.html">Dry & Canned Goods</a></li>
+             <li class="nav-second-level"><a href="components.html">Pantry</a></li>
+             <li class="nav-second-level"><a href="components.html">Beverages</a></li>
+            <li class="nav-second-level"><a href="components.html">Snacks</a></li>
+            <li class="nav-second-level"><a href="components.html">Frozen</a></li>
+           <li class="nav-second-level"><a href="components.html">Health & Beauty</a></li>
+           <li class="nav-second-level"><a href="components.html">Babies</a></li>
+           <li class="nav-second-level"><a href="components.html">Pets</a></li>
+           <li class="nav-second-level"><a href="components.html">Household</a></li>
+          <li class="nav-second-level"><a href="components.html">Ready to eat</a></li>
+   
+   
+   
+</ul>
+</div>
+      
+     
+        
+        
+    </div>
+    
+</aside>
+
+
+<!-- Main Wrapper -->
+<div id="wrapper">
+
+
+
+         <div class="hpanel">
+        <div class="panel-body">
+            <a class="small-header-action" href="">
+                <div class="clip-header">
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </a>
+
+            <div id="hbreadcrumb" class="pull-right">
+                
+            </div>
+             <div id="hbreadcrumb" class="pull-left">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="index.html">Categories</a></li>
+                    <li class="active">
+                        <span>Specials</span>
+                    </li>
+                 
+                </ol>
+            </div>
+            
+           
+        </div>
+    </div>
+    <div class="content animate-panel">
+    
+      
+        <div class="row">
+           
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+           
+                 <div  class="col-sm-3 wow fadeInDown" data-wow-duration="600ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-3 wow fadeInDown" data-wow-duration="900ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="1200ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="600ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="900ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="1200ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="col-sm-3 wow fadeInDown" data-wow-duration="300ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+              <div class="col-sm-3 wow fadeInDown" data-wow-duration="600ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+              <div class="col-sm-3 wow fadeInDown" data-wow-duration="900ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+              <div class="col-sm-3 wow fadeInDown" data-wow-duration="1200ms">
+                <div class="hpanel stats">
+                    <div class="panel-body h-200">
+                       fdsfdsfdsf
+                    </div>
+                    <div class="panel-footer">
+                        This is standard panel footer
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+              
+          
+        </div>
+       
+           
+           
+    </div>
+
+    <!-- Right sidebar -->
+    <div id="right-sidebar" class="animated fadeInRight">
+
+        <div class="p-m">
+            <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md"><i class="pe pe-7s-close"></i>
+            </button>
+            <div>
+                <span class="font-bold no-margins"> Analytics </span>
+                <br>
+                <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
+            </div>
+            <div class="row m-t-sm m-b-sm">
+                <div class="col-lg-6">
+                    <h3 class="no-margins font-extra-bold text-success">300,102</h3>
+
+                    <div class="font-bold">98% <i class="fa fa-level-up text-success"></i></div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="no-margins font-extra-bold text-success">280,200</h3>
+
+                    <div class="font-bold">98% <i class="fa fa-level-up text-success"></i></div>
+                </div>
+            </div>
+            <div class="progress m-t-xs full progress-small">
+                <div style="width: 25%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" role="progressbar"
+                     class=" progress-bar progress-bar-success">
+                    <span class="sr-only">35% Complete (success)</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-m bg-light border-bottom border-top">
+            <span class="font-bold no-margins"> Social talks </span>
+            <br>
+            <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.</small>
+            <div class="m-t-md">
+                <div class="social-talk">
+                    <div class="media social-profile clearfix">
+                        <a class="pull-left">
+                            <img src="images/a1.jpg" alt="profile-picture">
+                        </a>
+
+                        <div class="media-body">
+                            <span class="font-bold">John Novak</span>
+                            <small class="text-muted">21.03.2015</small>
+                            <div class="social-content small">
+                                Injected humour, or randomised words which don't look even slightly believable.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-talk">
+                    <div class="media social-profile clearfix">
+                        <a class="pull-left">
+                            <img src="images/a3.jpg" alt="profile-picture">
+                        </a>
+
+                        <div class="media-body">
+                            <span class="font-bold">Mark Smith</span>
+                            <small class="text-muted">14.04.2015</small>
+                            <div class="social-content">
+                                Many desktop publishing packages and web page editors.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-talk">
+                    <div class="media social-profile clearfix">
+                        <a class="pull-left">
+                            <img src="images/a4.jpg" alt="profile-picture">
+                        </a>
+
+                        <div class="media-body">
+                            <span class="font-bold">Marica Morgan</span>
+                            <small class="text-muted">21.03.2015</small>
+
+                            <div class="social-content">
+                                There are many variations of passages of Lorem Ipsum available, but the majority have
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-m">
+            <span class="font-bold no-margins"> Sales in last week </span>
+            <div class="m-t-xs">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <small>Today</small>
+                        <h4 class="m-t-xs">$170,20 <i class="fa fa-level-up text-success"></i></h4>
+                    </div>
+                    <div class="col-xs-6">
+                        <small>Last week</small>
+                        <h4 class="m-t-xs">$580,90 <i class="fa fa-level-up text-success"></i></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <small>Today</small>
+                        <h4 class="m-t-xs">$620,20 <i class="fa fa-level-up text-success"></i></h4>
+                    </div>
+                    <div class="col-xs-6">
+                        <small>Last week</small>
+                        <h4 class="m-t-xs">$140,70 <i class="fa fa-level-up text-success"></i></h4>
+                    </div>
+                </div>
+            </div>
+            <small> Lorem Ipsum is simply dummy text of the printing simply all dummy text.
+                Many desktop publishing packages and web page editors.
+            </small>
+        </div>
+
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer">
+        <span class="pull-right">
+            Example text
+        </span>
+        Company 2015-2020
+    </footer>
+
+</div>
+
+<!-- Vendor scripts -->
+
+
+
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="vendor/flot.curvedlines/curvedLines.js"></script>
+
+<script src="vendor/metisMenu/dist/metisMenu.min.js"></script>
+<script src="vendor/iCheck/icheck.min.js"></script>
+
+<script src="vendor/sparkline/index.js"></script>
+
+<!-- App scripts -->
+
+<script src="scripts/charts.js"></script>
+
+<!-- WOW SCRIPTS -->
+  <script src="wow/wow.js"></script>
+  <script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+      }
+    );
+    wow.init();
+    document.getElementById('moar').onclick = function() {
+      var section = document.createElement('section');
+      section.className = 'section--purple wow fadeInDown';
+      this.parentNode.insertBefore(section, this);
+    };
+  </script>
+<!--  wow -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WOW</title>
+
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+    <header>
+      <h1>WOW.js</h1>
+    </header>
+    <div id="main">
+      <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+       <div class="wow fadeInDown" style="background-color: #f1c40f;">tfyrtyryt</div>
+      <div class="wow pulse" style="background-color: #e74c3c;" data-wow-iteration="infinite" data-wow-duration="1500ms">hygg</div>
+      <div class="section--purple wow slideInRight" data-wow-delay="2s">ffghf</div>
+      <div class="section--blue wow bounceInLeft" data-wow-offset="300">hghg</div>
+      <div class="section--green wow slideInLeft" data-wow-duration="4s">yfyy</div>
+      
+      <br>
+      <br>
+      <br>
+      
+       <br>
+      <br>
+       <br>
+      <br>
+       <br>
+      <br>
+       <br>
+      <br>
+       <br>
+      <br> <br>
+      <br>
+      
+       <br>
+      <br> <br>
+      <br>
+       <br>
+      <br>
+      <button id="moar">LOAD MOAR!!</button>
+    </div>
+  </div>
+
+
