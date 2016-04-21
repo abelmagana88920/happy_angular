@@ -114,22 +114,33 @@ app.directive('productCart', function($compile, $parse) {
         templateUrl: '../partials/freshRecord.html',
         scope: {
              productObject: '=',
-             timerValue: '@'
+             numberObject: '=',
+             index: '@',
+             parent: '@',
+              
         },
+        controller: function ($scope) { 
+             $scope.count_cart = function(operation) {
+                   if (operation == 'plus') {
+                          $scope.count++;
+                          $scope.productObject[$scope.index].counter = $scope.count;
+                   }
+                   else if (operation == 'minus' && $scope.count>0) {
+                         $scope.count--;
+                         $scope.productObject[$scope.index].counter = $scope.count;
+                   }
 
-        link: function(scope, element, attrs) {
+                   //$scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
 
-             
-             attrs.$observe('tv', function(tv) {
-                 if (scope.tv === undefined) scope.tv=1; 
-                 else scope.tv++;
-             });
-           
-           
-           console.log(scope.timerValue);
-           /* scope.disabled = attrs.hasOwnProperty('disabled');
-            scope.required = attrs.hasOwnProperty('required');
-            scope.pattern = attrs.pattern || '.*'; */
+             }; 
+        },
+       
+        link: function($scope, element, attrs) {
+          
+              $scope.productObject[$scope.index].dataDuration = 800 * (parseInt($scope.index%4)+1);  // changes the value of animation resets to 4 columns
+               
+             // scope.productObject[scope.index].hello = scope.$parent.$parent.counter++; // update the value of the parent controller
+                       
         }
        
       };

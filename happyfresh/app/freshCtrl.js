@@ -17,24 +17,36 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
                 ];
 
-    $scope.counter = 1;
+    $scope.counter = 2;
 
-    $scope.timer=1;
-    
+    $scope.number={'timer':1, arrayNumber: []};
+
+   /* $scope.count_cart = function(operation) {
+            console.log(operation);
+
+    }; */
+ 
+
     $scope.product = [
-           {id:"1",name:"Mamy Poko"},
-           {id:"2",name:"Mamy Poko"},
-           {id:"3",name:"Mamy Poko"},
-           {id:"4",name:"Mamy Poko"},
-           {id:"5",name:"Mamy Poko"},
-           {id:"6",name:"Mamy Poko"},
-           {id:"7",name:"Mamy Poko"},
-            {id:"7",name:"Mamy Poko"},
-              {id:"7",name:"Mamy Poko"},
-                {id:"7",name:"Mamy Poko"},
-                  {id:"7",name:"Mamy Poko"},
-                    {id:"7",name:"Mamy Poko"},
-                      {id:"7",name:"Mamy Poko"},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet'},
+          
     ];
 
     

@@ -1,5 +1,5 @@
-{{ tv }}
-  <div class="col-md-3 wow fadeInDown" data-wow-duration="300ms">
+     {{productObject[index]}}
+  <div class="col-md-3 wow fadeInDown" data-wow-duration="{{productObject[index].dataDuration}}ms">
                 <div class="hpanel stats">
                     <div class="panel-body img-responsive">
 
@@ -13,9 +13,9 @@
                             </div>
                             <div class="col-xs-6" >
                                 <div><br><br><br><br></div>
-                               <h4>Mamy Poko Baby Wipes 80 Sheets</h4>
-                               <h5 class="product_price">฿135.00 / packet</h5>
-                              <br>Baby Wipes 80 Sheets
+                               <h4>{{productObject[index].name}}</h4>
+                               <h5 class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</h5>
+                              <br>{{productObject[index].subname}}
                             
                             </div>
                         </div>
@@ -24,15 +24,13 @@
 
             
                     <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
-                        Mamy Poko Baby Wipes 80 Sheets
-                               <div class="product_price">฿135.00 / packet</div>
+                        {{productObject[index].name}}
+                               <div class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</div>
                                
                                <div class="cart">
-                                  <i class="counter-button glyphicon glyphicon glyphicon-minus fa-2x"></i>
-                                   
-                                       <span class="cart-quantity"> 0 </span>
-                                  
-                                   <i class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                                  <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
+                                       <span class="cart-quantity"> {{count}} </span>                                       
+                                   <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                                </div>
                     </div>
                 </div>
