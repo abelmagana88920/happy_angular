@@ -124,13 +124,13 @@ app.directive('productCart', function($compile, $parse) {
                    if (operation == 'plus') {
                           $scope.count++;
                           $scope.productObject[$scope.index].counter = $scope.count;
+                          $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
                    }
                    else if (operation == 'minus' && $scope.count>0) {
                          $scope.count--;
                          $scope.productObject[$scope.index].counter = $scope.count;
+                         $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
                    }
-
-                   //$scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
 
              }; 
         },

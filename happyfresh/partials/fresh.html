@@ -25,9 +25,11 @@
 
 
     <div class="content animate-panel">
-    
+         <div style="margin-bottom: 25px;">
+            <h4> Total: {{counter}} </h4>
+         </div>
         <div class="row">
-               
+             
            <product-cart  ng-repeat="pr in product" product-object="product" number-object="number" index="{{$index}}" parent="{{$parent}}" >
           </product-cart>
 

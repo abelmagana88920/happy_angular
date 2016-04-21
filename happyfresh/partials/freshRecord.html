@@ -1,15 +1,15 @@
-     {{productObject[index]}}
+ 
   <div class="col-md-3 wow fadeInDown" data-wow-duration="{{productObject[index].dataDuration}}ms">
                 <div class="hpanel stats">
                     <div class="panel-body img-responsive">
-
+                        {{count}}
                          <div class="row visible-md visible-lg">
-                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                              <img class="img-responsive" src="{{'image_download/' + productObject[index].img}}">
                         </div>
                       
                         <div class="row visible-xs visible-sm">
                             <div class="col-xs-6">
-                              <img class="img-responsive" src="image_download/mamypoko.jpg">
+                              <img class="img-responsive" src="{{'image_download/' + productObject[index].img}}">
                             </div>
                             <div class="col-xs-6" >
                                 <div><br><br><br><br></div>
