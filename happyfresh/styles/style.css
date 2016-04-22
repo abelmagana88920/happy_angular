@@ -1503,7 +1503,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #fff;
   font-size: 10px;
-  color: #6a6c6f;
+  /*color: #6a6c6f;*/
   margin: 0;
   padding: 0;
   height: 100%;
@@ -1536,7 +1536,7 @@ body {
   min-height: 100%;
 }
 .content {
-  padding: 25px 40px 40px 40px;
+  padding: 2px 40px 40px 40px;
   min-width: 320px;
 }
 .footer {
@@ -1743,11 +1743,11 @@ body {
 }
 
 /*  Adding hover functionality with visible  */
-.hpanel > .panel-footer:hover .cart {
+.hpanel > .panel-footer:hover .cart-hidden {
    display: block;
 }
 
-.cart {
+.cart-hidden {
     display: none;
     margin-top: 10px;
 }
@@ -1758,13 +1758,20 @@ body {
     margin-left:8px;
 }
 
+.total-cart-counter {
+
+  font-size: 20px;
+   top:18px; 
+   left:18px;
+   position:relative;
+}
+
 .hpanel > .panel-footer,
 .hpanel > .panel-section {
   color: inherit;
-  border: 1px solid #e4e5e7;
-  border-top: none;
+  border: 1px solid #f43;
   font-size: 90%;
-  background: #f7f9fa;
+  background: rgba(235,13,139, 0.2) ;
   padding: 10px 15px;
 }
 .hpanel.panel-collapse > .panel-heading,
@@ -2293,9 +2300,9 @@ body.fullscreen-panel-mode {
 }
 /* Labels */
 .label-menu-corner .label {
-  font-size: 10px;
+  font-size: 25px;
   line-height: 12px;
-  padding: 2px 5px;
+  padding: 9px 5px;
   position: absolute;
   right: 18px;
   top: 12px;
@@ -2365,7 +2372,7 @@ body.fullscreen-panel-mode {
   float: left;
   border-right: 1px solid #e4e5e7;
   border-left: 1px solid #e4e5e7;
-  margin-right: 15px;
+  /*margin-right: 15px; */
   background: #f7f9fa;
   cursor: pointer;
 }
@@ -2672,9 +2679,9 @@ h6 {
 @media (max-width: 768px) {
   .navbar-form-custom,
   .navbar-right,
-  #logo {
+  /*#logo {
     display: none;
-  }
+  } */
   .navbar-static-top {
     margin: 0;
   }
@@ -2697,8 +2704,35 @@ h6 {
 @media (max-width: 320px) {
   #wrapper {
     overflow: hidden;
+
   }
 }
+/* when page is larger hide the menus */
+@media (max-width: 768px) {
+  #wrapper {
+    overflow: hidden;
+    margin: 0 0 0 0;
+    
+  }
+  aside#menu {
+     display: none;
+  }
+}
+ 
+/* page large cancel */
+ aside#menu {
+     display: none;
+}
+
+#wrapper {
+    overflow: hidden;
+    margin: 0 0 0 0;
+    
+  }
+/*  page large cancel   */ 
+
+ 
+
 .canvass {
   -moz-transition: width 0.01s, height 0.01s;
   -webkit-transition: width 0.01s, height 0.01s;

@@ -121,17 +121,28 @@ app.directive('productCart', function($compile, $parse) {
         },
         controller: function ($scope) { 
              $scope.count_cart = function(operation) {
-                   if (operation == 'plus') {
-                          $scope.count++;
-                          $scope.productObject[$scope.index].counter = $scope.count;
-                          $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
-                   }
-                   else if (operation == 'minus' && $scope.count>0) {
-                         $scope.count--;
-                         $scope.productObject[$scope.index].counter = $scope.count;
-                         $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
-                   }
 
+                   var available_stock = $scope.productObject[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject[$scope.index].availablestock;
+                   //set the initial value of available stock
+
+                   console.log( $scope.count + ' ' + available_stock);
+
+                        //check wthe plus sign then check the available stock
+                       if (operation == 'plus' && $scope.count < available_stock) {
+                              $scope.count++;
+                              $scope.productObject[$scope.index].counter = $scope.count;
+                              
+
+                              $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
+                       }
+                       else if (operation == 'minus' && $scope.count>0) {
+                             $scope.count--;
+                             $scope.productObject[$scope.index].counter = $scope.count;
+                             $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
+                       }
+
+                
+                    $scope.$emit('response', $scope.$parent.$parent.counter);
              }; 
         },
        

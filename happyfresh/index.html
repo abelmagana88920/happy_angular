@@ -38,7 +38,7 @@
      <!-- wow -->
 
 </head>
-<body class="fixed-navbar fixed-sidebar">
+<body class="fixed-navbar fixed-sidebar" ng-controller="globalCtrl">
 
 <!-- Simple splash screen-->
 <!--
@@ -51,29 +51,37 @@
 <div id="header">
     <div class="color-line">
     </div>
-    <div id="logo" class="light-version">
-       <img src="images/logodark.svg" width=110>
-      
-    </div>
+      <div id="logo" class="light-version">
+            <img src="images/logodark.svg" width=110>
+        
+        </div>
     <nav role="navigation">
-        <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+
+       <div tabindex="1" id="show-menu" class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+
+      
+          
+ 
+        <!-- use for hide when page zoom 
         <div class="small-logo">
             <span class="text-primary">Happy Fresh</span>
-        </div>
-        <form role="search" class="navbar-form-custom" method="post" action="#">
+        </div> -->
+        <span class="total-cart-counter label label-success" > Total:  {{counterGlobal}} </span>
+        <!--<form role="search" class="navbar-form-custom" method="post" action="#">
             <div class="form-group">
                 <input type="text" placeholder="Search something special" class="form-control" name="search">
             </div>
-        </form>
+        </form> -->
       
         <div class="navbar-right">
+               
+               <!--
             <ul class="nav navbar-nav no-borders">
-               
-               
+                 
                 <li>
+                   
                     <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
-                        <i class="pe-7s-mail"></i>
-                        <span class="label label-success">4</span>
+                       
                     </a>
                     <ul class="dropdown-menu hdropdown animated flipInX">
                         
@@ -86,11 +94,11 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="login.html">
+                    <a href="login.html">dfdsfdsfs
                         <i class="pe-7s-upload pe-rotate-90"></i>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
 </div>
@@ -98,60 +106,30 @@
 <!-- Navigation -->
 <aside id="menu">
 
- 
-    <div id="navigation"> 
-        <div class="profile-picture">
-           
-
-            <div class="stats-label text-color">
-                
-
-       
-            </div>
-        </div>
-
 
 <div class='cssmenu'>
+
 <ul>
    <li><a href='#'></a></li>
-    <li><a href='#'><span>LIST & FAVORITES </span></a></li>
-	   <li class='active has-sub nav-second-level'><a href='#'><span>Recommended</span></a>
-	      <ul >
-		 <li class='has-sub' ><a href='#'><span>Product 1</span></a>
-		    <ul>
-		       <li><a href='#'><span>Sub Product</span></a></li>
-		       <li class='last'><a href='#'><span>Sub Product</span></a></li>
-		    </ul>
-		 </li>
-		 <li class='has-sub'><a href='#'><span>Product 2</span></a>
-		    <ul>
-		       <li style="z-index:10;"><a href='#'><span>Sub Product</span></a></li>
-		       <li class='last'><a href='#'><span>Sub Product</span></a></li>
-		    </ul>
-		 </li>
-	      </ul>
-	   </li>
-  	 <li class="nav-second-level "><a href="#">My Favorites</a></li>
-   <li><a href='#'><span>CATEGORIES</span></a></li>
-   	     <li class="nav-second-level"><a href="panels.html">Specials</a></li>      
-             <li class="nav-second-level"><a href="buttons.html">Fresh Produce</a></li>
-             <li class="nav-second-level"><a href="components.html">Meat & Seafood</a></li>
-	     <li class="nav-second-level"><a href="components.html">Deli</a></li>
-             <li class="nav-second-level"><a href="components.html">Bakery</a></li>
-             <li class="nav-second-level"><a href="components.html">Dairy</a></li>
-             <li class="nav-second-level"><a href="components.html">Dry & Canned Goods</a></li>
-             <li class="nav-second-level"><a href="components.html">Pantry</a></li>
-             <li class="nav-second-level"><a href="components.html">Beverages</a></li>
-            <li class="nav-second-level"><a href="components.html">Snacks</a></li>
-            <li class="nav-second-level"><a href="components.html">Frozen</a></li>
-           <li class="nav-second-level"><a href="components.html">Health & Beauty</a></li>
-           <li class="nav-second-level"><a href="components.html">Babies</a></li>
-           <li class="nav-second-level"><a href="components.html">Pets</a></li>
-           <li class="nav-second-level"><a href="components.html">Household</a></li>
-          <li class="nav-second-level"><a href="components.html">Ready to eat</a></li>
    
+   <li>
+
+  <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree">
+        <a href="a.html"><span>{{menu.title}} </span></a>
+        <ul data-ng-show="menu.children">
+          <li class='has-sub' ng-repeat="submenu in menu.children">
+              <a href="{{submenu.url}}"><span> {{submenu.title}}</span> </a>
+                  <ul data-ng-show="menu.children">
+                    <li class='has-sub' ng-repeat="submenu in menu.children">
+                        <a href="{{submenu.url}}"><span> {{submenu.title}}</span> </a>
+                    </li>
+                  </ul>
+          </li>
+        </ul>
+  </li>
    
-   
+    
+    
 </ul>
 </div>
       
@@ -167,9 +145,6 @@
 <div id="wrapper">
 
        <div ng-view="" id="ng-view"></div>
-
-        
-
 
      <!--
 
@@ -641,11 +616,12 @@
   <script src="bower_components/angular/ui-bootstrap-tpls-0.10.0.min.js"></script>
  <script src="bower_components/angular/angular-route.min.js"></script>
   <script src="bower_components/angular/angular-animate.min.js"></script>
-
+   <script src="bower_components/underscore/underscore.js"></script>
  
 
  <!-- AngularJS custom codes -->
 <script src="app/app_and_route.js"></script>
+<script src="app/globalCtrl.js"></script>
 <script src="app/data.js"></script>
 <script src="app/directives.js"></script>
 <script src="app/services.js"></script>
@@ -654,13 +630,14 @@
 <script src="app/freshCtrl.js"></script>
 
 <script src="app/templateEditCtrl.js"></script>
+<script src="bower_components/miscellaneous/jscss.js"></script>
 <!-- App scripts -->
 
 
-<!--
+ <!--
 <script src="bower_components/miscellaneous/jquery.min.js"></script>
 <script src="bower_components/miscellaneous/bootstrap.min.js"></script>
- -->
+  -->
 
 <!-- WOW SCRIPTS -->
   <script src="wow/wow.js"></script>

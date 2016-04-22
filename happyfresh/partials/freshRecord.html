@@ -15,23 +15,37 @@
                                 <div><br><br><br><br></div>
                                <h4>{{productObject[index].name}}</h4>
                                <h5 class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</h5>
+
                               <br>{{productObject[index].subname}}
+                              <br>
+
+                                    <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
+                                       <span class="cart-quantity"> {{count}} </span>                                       
+                                   <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                             
                             </div>
+
+
+
                         </div>
                     </div>
                    
 
-            
+            <!-- on large device -->
                     <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
+                       <div style="background-color:#ffffff">
                         {{productObject[index].name}}
                                <div class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</div>
                                
-                               <div class="cart">
+                               <div class="cart-hidden" >
+                                
+                                  Available Stock: {{ productObject[index].availablestock }}
+                                  <br>
                                   <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
                                        <span class="cart-quantity"> {{count}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                                </div>
+                        </div>
                     </div>
                 </div>
             </div>

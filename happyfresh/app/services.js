@@ -16,6 +16,49 @@ app.service('improveService', function() {
         return newText;
     };
 
+
+
+ 
+    //convert the flatten json data to a tree data  -- requires pid except index 0  note: use self instead of this
+    this.unflattenTree = function( array, parent, tree ){
+            
+        tree = typeof tree !== 'undefined' ? tree : [];
+        parent = typeof parent !== 'undefined' ? parent : { id: 0 };
+            
+        var children = _.filter( array, function(child){ return child.pid == parent.id; });
+     
+        if( !_.isEmpty( children )  ){
+            if( parent.id == 0 ){
+               tree = children;   
+            }else{
+               parent['children'] = children;
+            }
+            _.each( children, function( child ){ self.unflattenTree( array, child ) } );                    
+        }
+        return tree;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     this.setTableName = function($scope,is) {
 	$scope.table_name=$scope.paramTableName;
         $scope.tables_name=$scope.table_name + "s";
