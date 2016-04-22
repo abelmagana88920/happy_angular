@@ -1763,6 +1763,10 @@ body {
     margin-left:8px;
 }
 
+.green {
+     color: red;
+}
+
 .total-cart-counter {
 
   font-size: 20px;

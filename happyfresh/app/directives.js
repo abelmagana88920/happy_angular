@@ -143,7 +143,9 @@ app.directive('productCart', function($compile, $parse) {
                              $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
                        }
 
-                    $scope.left = available_stock - $scope.count;
+                    $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.count);
+           
+
                 
                     $scope.$emit('response', $scope.$parent.$parent.counter);
              }; 

@@ -15,6 +15,11 @@
                                 <div><br><br><br><br></div>
                                <h4>{{productObject[index].name}}</h4>
                                <h5 class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</h5>
+                               <br>  
+                               Available Stock: {{ productObject[index].availablestock }}
+                                  <br>
+                                   {{ left }}
+                                  <br>
 
                               <br>{{productObject[index].subname}}
                               <br>
@@ -41,11 +46,11 @@
                                 
                                   Available Stock: {{ productObject[index].availablestock }}
                                   <br>
-                                  Will Left: {{ left }}
+                                    {{ left }}
                                   <br>
                                   <br>
                                   <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                       <span class="cart-quantity"> {{count}} </span>                                       
+                                       <span class="cart-quantity" ng-class="{'Will left: 0':'green'}[left]"> {{count}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                                </div>
                         </div>
