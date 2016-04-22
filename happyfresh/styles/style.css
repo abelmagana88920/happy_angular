@@ -1726,12 +1726,17 @@ body {
 }
 
 
+
 .hpanel > .panel-footer:hover {
 
     position: relative;
-    top: -60px;
-    height: 105px;
-    margin-bottom: -60px;
+    /* top: 60px; */
+    top: -90px;
+    /*height: 105px; */
+    height: 135px;
+
+    /*margin-bottom: -60px; */
+    margin-bottom: -90px;
 
 
 }
@@ -2421,7 +2426,7 @@ body.fullscreen-panel-mode {
 }
 
 .mh-45:hover {
-  max-height: 105px;
+  max-height: 135px;
 }
 
 .h-150 {

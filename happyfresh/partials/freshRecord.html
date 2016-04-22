@@ -41,6 +41,9 @@
                                 
                                   Available Stock: {{ productObject[index].availablestock }}
                                   <br>
+                                  Will Left: {{ left }}
+                                  <br>
+                                  <br>
                                   <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
                                        <span class="cart-quantity"> {{count}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
