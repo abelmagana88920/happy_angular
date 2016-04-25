@@ -1536,7 +1536,7 @@ body {
   min-height: 100%;
 }
 .content {
-  padding: 2px 40px 40px 40px;
+  padding: 35px 40px 40px 40px;
   min-width: 320px;
 }
 .footer {
@@ -1769,10 +1769,8 @@ body {
 
 .total-cart-counter {
 
-  font-size: 20px;
-   top:18px; 
-   left:18px;
-   position:relative;
+  font-size: 14px;
+
 }
 
 .hpanel > .panel-footer,
@@ -1795,7 +1793,7 @@ body {
   background: #fff;
   border: 1px solid #f986c7;
   border-radius: 2px;
-  padding: 3px 21px;
+  padding: 8px 21px;
   position: relative;
 }
 .hpanel.panel-group .panel-body:first-child {
@@ -1812,6 +1810,13 @@ body {
   border: none;
   box-shadow: none;
   margin-bottom: 12px;
+}
+
+.hpanel.fixed {
+
+   position: fixed;
+   width: 100%;
+   z-index:100;
 }
 .panel-tools {
   display: inline-block;
