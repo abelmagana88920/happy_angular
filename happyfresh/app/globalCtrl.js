@@ -46,6 +46,9 @@
     });
     
     variableService.passed($scope,variableService); //global passed all scope
+
+
+   
     
    
 

@@ -161,3 +161,98 @@ app.directive('productCart', function($compile, $parse) {
        
       };
 });
+
+/*******************LOADING DIRECTIVES*******************************************/
+
+app.directive('showDuringResolve', function($rootScope) {
+
+  return {
+    link: function(scope, element) {
+
+      element.addClass('ng-hide');
+
+      var unregister = $rootScope.$on('$routeChangeStart', function() {
+        element.removeClass('ng-hide');
+      });
+
+      scope.$on('$destroy', unregister);
+    }
+  };
+});
+
+app.directive('resolveLoader', function($rootScope, $timeout) {
+
+  return {
+    restrict: 'E',
+     
+    templateUrl: '../partials/loading.html',
+    link: function(scope, element) {
+
+      $rootScope.$on('$routeChangeStart', function(event, currentRoute, previousRoute) {
+        if (previousRoute) return;
+
+        $timeout(function() {
+          element.removeClass('ng-hide');
+        });
+      });
+
+      $rootScope.$on('$routeChangeSuccess', function() {
+        element.addClass('ng-hide');
+      });
+    }
+  };
+});
+
+
+/*******************end LOADING DIRECTIVES*******************************************/
+
+
+ app.directive('whenScrollEnds', function($document,$window) {
+        return {
+            restrict: "A",
+            link: function(scope, element, attrs) {
+                var visibleHeight = element[0].offsetHeight;
+                var threshold =150;
+
+
+                $document.bind('scroll', function () {
+
+                 
+                  var scrollableHeight = element.prop('scrollHeight');
+                    var hiddenContentHeight = scrollableHeight - visibleHeight;
+
+                        //console.log(hiddenContentHeight+ ' ' + scrollableHeight + ' ' +document.body.offsetHeight);
+                 /*   if (hiddenContentHeight - window.scrollY <= threshold) {        
+                        // Scroll is almost at the bottom. Loading more rows
+                        scope.$apply(attrs.whenScrollEnds);
+
+                    } */ 
+            
+                         console.log(window.innerHeight + ' ' + window.scrollY + ' ' + hiddenContentHeight);
+                    if ((window.innerHeight + window.scrollY) >= hiddenContentHeight) {
+                         scope.$apply(attrs.whenScrollEnds);
+                    }
+
+
+ 
+
+                 });
+
+
+                /*window.onscroll = function(ev) {
+                    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                        // you're at the bottom of the page
+                    }
+                }; */
+               /* element.scroll(function() {
+                    var scrollableHeight = element.prop('scrollHeight');
+                    var hiddenContentHeight = scrollableHeight - visibleHeight;
+
+                    if (hiddenContentHeight - element.scrollTop() <= threshold) {
+                        // Scroll is almost at the bottom. Loading more rows
+                        scope.$apply(attrs.whenScrollEnds);
+                    }
+                }); */
+            }
+        };
+    });

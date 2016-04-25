@@ -1,0 +1,48 @@
+
+    <link rel="stylesheet" media="screen, projection" href="drift-basic.css">
+    <style type="text/css">
+     
+      .drift-demo-trigger {
+        width: 860px;
+        float: left;
+      }
+
+      .detail {
+        position: relative;
+        width: 860px;
+        float: left;
+      }
+
+    </style>
+
+
+        <img class="drift-demo-trigger drift1" data-zoom="http://assets.imgix.net/unsplash/lighthouse.jpg?w=1200&amp;ch=DPR&amp;dpr=2" src="http://assets.imgix.net/unsplash/lighthouse.jpg?w=400&amp;ch=DPR&amp;dpr=2">
+
+      <span class="detail detail1">
+         
+        <img class="drift-demo-trigger drift1" data-zoom="http://assets.imgix.net/unsplash/lighthouse.jpg?w=1200&amp;ch=DPR&amp;dpr=2" src="http://assets.imgix.net/unsplash/lighthouse.jpg?w=400&amp;ch=DPR&amp;dpr=2">
+
+       </span>
+
+
+       <img class="drift-demo-trigger drift2" data-zoom="http://assets.imgix.net/unsplash/lighthouse.jpg?w=1200&amp;ch=DPR&amp;dpr=2" src="http://assets.imgix.net/unsplash/lighthouse.jpg?w=400&amp;ch=DPR&amp;dpr=2">
+
+      <span class="detail detail2">
+         
+           <img class="drift-demo-trigger drift2" data-zoom="http://assets.imgix.net/unsplash/lighthouse.jpg?w=1200&amp;ch=DPR&amp;dpr=2" src="http://assets.imgix.net/unsplash/lighthouse.jpg?w=400&amp;ch=DPR&amp;dpr=2">
+
+       </span>
+
+
+
+    <script src="Drift.js"></script>
+    <script>
+      new Drift(document.querySelector('.drift1'), {
+        paneContainer: document.querySelector('.detail1'),
+      });
+
+       new Drift(document.querySelector('.drift2'), {
+        paneContainer: document.querySelector('.detail2'),
+      });
+ 
+    </script>
