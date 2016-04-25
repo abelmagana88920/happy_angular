@@ -10,7 +10,7 @@ var user = require('./routes/user');
 
 var http = require('http');
 var path = require('path');
-var models = require("./models");
+//var models = require("./models");
 var _ = require("underscore");
 
 
@@ -36,9 +36,9 @@ app.get('/', routes.index); //routes to index
 
 
 var custom = require('./customFunction.js')();
-var product_app = require('./productApp.js')("product",custom,app,models,_);  product_app.main(); //require productApp
+//var product_app = require('./productApp.js')("product",custom,app,models,_);  product_app.main(); //require productApp
 
-var name_app = require('./nameApp.js')("name",custom,app,models,_);  name_app.main(); //require nameApp
+//var name_app = require('./nameApp.js')("name",custom,app,models,_);  name_app.main(); //require nameApp
 //var name_app = require('./nameApp.js')(app,models,_);  name_app.main(); //require productApp
 
 
@@ -53,8 +53,8 @@ app.get('/about', about.about);
 var pro_manager = require('./routes/pro_manager');
 app.get('/pro_manager', pro_manager.pro_manager); */
 
-models.sequelize.sync().then(function() {
+//models.sequelize.sync().then(function() {
     http.createServer(app).listen(app.get('port'), function() {
         console.log('Express server listening on port ' + app.get('port'));
     });
-});
+//});
