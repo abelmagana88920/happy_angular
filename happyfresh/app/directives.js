@@ -107,7 +107,7 @@ app.directive('animateOnChange', function($animate) {
 
 
 
-app.directive('productCart', function($compile, $parse) {
+app.directive('productCart', function($compile, $parse, $filter, localStorageService) {
     return {
         restrict: 'E',
         transclude: true,
@@ -125,28 +125,50 @@ app.directive('productCart', function($compile, $parse) {
             
              $scope.productObject[$scope.index].availablestock = $scope.productObject[$scope.index].availablestock == undefined ? 'Always Available': $scope.productObject[$scope.index].availablestock;
           
+             if ($scope.productObject[$scope.index].counter == null ) $scope.productObject[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
-
+                        
                           //set the initial value of available stock
 
                         //check wthe plus sign then check the available stock
-                       if (operation == 'plus' && $scope.count < available_stock) {
-                              $scope.count++;
-                              $scope.productObject[$scope.index].counter = $scope.count;
-                               
-                              $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
+        
+                       if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) {
+
+                              //$scope.count++;
+                              $scope.productObject[$scope.index].counter++;
+
+                                
+                            //  var selectedCount = $filter('filter')($scope.productObject, { counter:0 }).length;
+
+                             // $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
                        }
-                       else if (operation == 'minus' && $scope.count>0) {
-                             $scope.count--;
-                             $scope.productObject[$scope.index].counter = $scope.count;
+                       else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) {
+                             //$scope.count--;
+                             $scope.productObject[$scope.index].counter--;
                           
-                             $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
+                            // $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
                        }
 
                     $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.count);
            
+                   // if ( $scope.productObject[$scope.index].counter == 0) delete($scope.productObject[$scope.index].counter);
+                     // when  zero clear the counter property
 
-                
+
+                     selectedCount = _.countBy($scope.productObject, function(num) {
+                                   return num.counter != 0 ? 'counter': 'left';
+                     });  // count the number of property counter
+
+                      
+                    $scope.$parent.$parent.counter = parseInt(selectedCount.counter); // parent counter number items
+
+                    sorted =  _.sortBy($scope.productObject, function(o) { return o.counter; });
+
+
+                    localStorageService.set('productStorage',sorted.reverse());
+
+  
+
                     $scope.$emit('response', $scope.$parent.$parent.counter);
              }; 
         },

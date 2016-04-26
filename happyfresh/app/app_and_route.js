@@ -1,5 +1,5 @@
 startPage = Date.now();
-var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate','underscore']);
+var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate','underscore','LocalStorageModule']);
 
 app.config(['$routeProvider',
   function($routeProvider) {

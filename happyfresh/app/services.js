@@ -105,30 +105,30 @@ app.service('improveService', function() {
 		}
 	    };
 	    $scope.open = function (p,size) {
-		var modalInstance = $modal.open({
-		  templateUrl: 'partials/templateEdit.html',
-		  controller: 'templateEditCtrl',
-		  size: size,
-		  resolve: {
-		    item: function () {
-		      return p;
-		    }
-		  }
-		});
-		modalInstance.result.then(function(selectedObject) {
-		    if(selectedObject.save == "insert"){
-		        $scope['t_name'][$scope.tables_name].push(selectedObject);
-		        $scope['t_name'][$scope.tables_name] = $filter('orderBy')($scope['t_name'][$scope.tables_name], 'id', 'reverse');
-		    }else if(selectedObject.save == "update"){
-		        
+    		var modalInstance = $modal.open({
+    		  templateUrl: 'partials/templateEdit.html',
+    		  controller: 'templateEditCtrl',
+    		  size: size,
+    		  resolve: {
+    		    item: function () {
+    		      return p;
+    		    }
+    		  }
+    		});
+    		modalInstance.result.then(function(selectedObject) {
+    		    if(selectedObject.save == "insert"){
+    		        $scope['t_name'][$scope.tables_name].push(selectedObject);
+    		        $scope['t_name'][$scope.tables_name] = $filter('orderBy')($scope['t_name'][$scope.tables_name], 'id', 'reverse');
+    		    }else if(selectedObject.save == "update"){
+    		        
 
-		        $scope.columns.forEach(function(column){
-		              p[column.predicate] = selectedObject[column.predicate]; //update dom fields
-		        });
-		      
-		    }
-		      $scope.totalItems = $scope['t_name'][$scope.tables_name].length;
-		});
+    		        $scope.columns.forEach(function(column){
+    		              p[column.predicate] = selectedObject[column.predicate]; //update dom fields
+    		        });
+    		      
+    		    }
+    		      $scope.totalItems = $scope['t_name'][$scope.tables_name].length;
+    		});
 	    };
     
 

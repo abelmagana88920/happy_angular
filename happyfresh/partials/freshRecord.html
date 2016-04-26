@@ -2,7 +2,7 @@
   <div class="col-md-3 wow fadeInDown" data-wow-duration="{{productObject[index].dataDuration}}ms">
                 <div class="hpanel stats">
                     <div class="panel-body img-responsive">
-                        {{count}}
+                        {{productObject[index].counter}}
                          <div class="row visible-md visible-lg">
                               <img class="img-responsive" src="{{'image_download/' + productObject[index].img}}">
                         </div>
@@ -25,7 +25,7 @@
                               <br>
 
                                     <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                       <span class="cart-quantity"> {{count}} </span>                                       
+                                       <span class="cart-quantity"> {{productObject[index].counter}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                             
                             </div>
@@ -50,7 +50,7 @@
                                   <br>
                                   <br>
                                   <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                       <span class="cart-quantity" ng-class="{'Will left: 0':'green'}[left]"> {{count}} </span>                                       
+                                       <span class="cart-quantity" ng-class="{'Will left: 0':'green'}[left]"> {{productObject[index].counter}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                                </div>
                         </div>
