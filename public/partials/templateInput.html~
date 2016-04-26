@@ -1,0 +1,15 @@
+
+<form-element ng-if="columnsObject.input && (columnsObject.type === undefined || columnsObject.type=='text')" label="{{columnsObject.text}}" mod="{{tableNameString}}">
+
+                <input type="text" class="form-control" dynamic-name="columnsObject.predicate"  placeholder="{{columnsObject.text}}" ng-required="columnsObject.required"  ng-model="tNameObject[columnsObject.predicate]"  focus="{{columnsObject.focus}}" only-numbers="{{columnsObject.dataType}}"/>
+          
+              <small class="errorMessage" ng-show="tableNameFormObject[columnsObject.predicate].$dirty && tableNameFormObject[columnsObject.predicate].$invalid"> Enter the {{columnsObject.text}}</small>
+ </form-element>
+
+
+<form-element ng-if="columnsObject.input && columnsObject.type=='textarea'" label="{{columnsObject.text}}" mod="{{tableNameString}}">
+           
+             <textarea class="form-control" dynamic-name="columnsObject.predicate" placeholder="{{columnsObject.text}}" ng-required="columnsObject.required" ng-model="tNameObject[columnsObject.predicate]">{{tNameObject[columnsObject.predicate]}</textarea>
+
+	       <small class="errorMessage" ng-show="tableNameFormObject[columnsObject.predicate].$dirty && tableNameFormObject[columnsObject.predicate].$invalid"> Enter the {{columnsObject.text}}</small>
+</form-element>

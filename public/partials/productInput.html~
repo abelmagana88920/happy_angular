@@ -1,0 +1,7 @@
+
+<form-element ng-if="columnsObject.input" label="{{columnsObject.text}}" mod="{{tableNameString}}">
+
+                <input type="text" class="form-control" dynamic-name="columnsObject.predicate"  placeholder="{{columnsObject.text}}" ng-required="columnsObject.required"  ng-model="tNameObject[columnsObject.predicate]"  ng-focus="columnsObject.focus"/>
+          
+              <small class="errorMessage" ng-show="tableNameFormObject[columnsObject.predicate].$dirty && tableNameFormObject[columnsObject.predicate].$invalid"> Enter the {{columnsObject.text}}</small>
+ </form-element>
