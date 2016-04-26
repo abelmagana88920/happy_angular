@@ -16,8 +16,16 @@ var config = require(__dirname + '/../config/config.json')[env];
       port:     match[4],
       host:     match[3],
       logging:  true //false
-    },config); 
+    }); 
+
+	   console.log('Abel: ' + sequelize);
+
 } else {
+
+	
+
+  
+
     var sequelize = new Sequelize(config.database, config.username, config.password, config);
      
 }
