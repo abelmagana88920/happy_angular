@@ -10,7 +10,7 @@ var user = require('./routes/user');
 
 var http = require('http');
 var path = require('path');
-//var models = require("./models");   //temporary
+var models = require("./models");   //temporary
 var _ = require("underscore");
 
 
@@ -53,8 +53,8 @@ app.get('/about', about.about);
 var pro_manager = require('./routes/pro_manager');
 app.get('/pro_manager', pro_manager.pro_manager); */
 
-//models.sequelize.sync().then(function() {     //temporary
+models.sequelize.sync().then(function() {     //temporary
     http.createServer(app).listen(app.get('port'), function() {
         console.log('Express server listening on port ' + app.get('port'));
     });
-//});   //temporary
+});   //temporary

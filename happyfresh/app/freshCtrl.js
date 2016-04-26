@@ -28,10 +28,15 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     }; */
     $scope.img_folder = 'image_download/';
+ 
 
-    $scope.displayIndexRecord = 0;
-    $scope.displayNumRecords = 4;
-    $scope.displayDivideRecords = 1;
+
+    $scope.display = {
+          IndexRecord: 0,
+          NumRecords: 4,
+          DivideRecords: 1
+    };
+
     $scope.product = [];
 
     $scope.RecordData = [
@@ -629,23 +634,20 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     ];
 
-    for (var i=$scope.displayIndexRecord; i<=($scope.displayNumRecords*$scope.displayDivideRecords); i++) {
-          $scope.product.push($scope.RecordData[i]);
-          $scope.displayIndexRecord++;
-    }
-
-
+    
     $scope.loadMoreRecords = function() {
-        $scope.displayDivideRecords++;
+        $scope.display.DivideRecords++;
    
-         for (var i=($scope.displayIndexRecord); i<=($scope.displayNumRecords*$scope.displayDivideRecords); i++) {
+         for (var i=($scope.display.IndexRecord); i<=($scope.display.NumRecords*$scope.display.DivideRecords); i++) {
             if ($scope.RecordData[i] !== undefined) {
                 $scope.product.push($scope.RecordData[i]);
-                $scope.displayIndexRecord++;
+                $scope.display.IndexRecord++;
             } 
 
         }    
     };
+
+    $scope.loadMoreRecords();
 
     $scope.$emit('response', $scope.counter); // call the function on the parent global controller
     

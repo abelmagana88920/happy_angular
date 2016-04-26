@@ -1779,6 +1779,7 @@ body {
   border: 1px solid #f43;
   font-size: 90%;
   background: rgba(235,13,139, 0.2) ;
+   
   padding: 10px 15px;
 }
 .hpanel.panel-collapse > .panel-heading,
@@ -1796,6 +1797,9 @@ body {
   padding: 8px 21px;
   position: relative;
 }
+
+ 
+
 .hpanel.panel-group .panel-body:first-child {
   border-top: 1px solid #e4e5e7;
 }
