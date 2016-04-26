@@ -6,7 +6,10 @@ var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + '/../config/config.json')[env];
 
+
+
  if (process.env.HEROKU_POSTGRESQL_NAVY_URL) {
+ 	var match = HEROKU_POSTGRESQL_NAVY_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
 	 var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_NAVY_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
