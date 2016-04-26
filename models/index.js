@@ -18,13 +18,9 @@ var config = require(__dirname + '/../config/config.json')[env];
       logging:  true //false
     }); 
 
-	  JSON.stringify('Abel: ' + sequelize);
+	  
 
 } else {
-
-	
-
-  
 
     var sequelize = new Sequelize(config.database, config.username, config.password, config);
      

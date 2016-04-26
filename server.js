@@ -36,9 +36,9 @@ app.get('/', routes.index); //routes to index
 
 
 var custom = require('./customFunction.js')();
-//temporary //var product_app = require('./productApp.js')("product",custom,app,models,_);  product_app.main(); //require productApp
+var product_app = require('./productApp.js')("product",custom,app,models,_);  product_app.main(); //require productApp
 
-//temporary  //var name_app = require('./nameApp.js')("name",custom,app,models,_);  name_app.main(); //require nameApp 
+var name_app = require('./nameApp.js')("name",custom,app,models,_);  name_app.main(); //require nameApp 
 //temporary //var name_app = require('./nameApp.js')(app,models,_);  name_app.main(); //require productApp 
 
 
