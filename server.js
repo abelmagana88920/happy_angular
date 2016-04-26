@@ -17,7 +17,8 @@ var _ = require("underscore");
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.use(express.static(path.join(__dirname, 'public/')));
+//app.use(express.static(path.join(__dirname, 'public/')));
+app.use(express.static(path.join(__dirname, 'happyfresh/')));
 app.use('view engine','');
 
 app.use(express.favicon());
