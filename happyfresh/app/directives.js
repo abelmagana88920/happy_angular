@@ -107,7 +107,7 @@ app.directive('animateOnChange', function($animate) {
 
 
 
-app.directive('productCart', function($compile, $parse, $filter, localStorageService) {
+app.directive('productCart', function($compile, $parse, $filter, localStorageService,improveService) {
     return {
         restrict: 'E',
         transclude: true,
@@ -128,50 +128,25 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
              if ($scope.productObject[$scope.index].counter == null ) $scope.productObject[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
                         
-                          //set the initial value of available stock
 
-                        //check wthe plus sign then check the available stock
-        
-                       if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) {
-
-                              //$scope.count++;
-                              $scope.productObject[$scope.index].counter++;
-
-                                
-                            //  var selectedCount = $filter('filter')($scope.productObject, { counter:0 }).length;
-
-                             // $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)+1;
-                       }
-                       else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) {
-                             //$scope.count--;
+                    if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
+                              $scope.productObject[$scope.index].counter++;  
+                   else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) 
                              $scope.productObject[$scope.index].counter--;
-                          
-                            // $scope.$parent.$parent.counter = parseInt($scope.$parent.$parent.counter)-1;
-                       }
 
                     $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.count);
-           
-                   // if ( $scope.productObject[$scope.index].counter == 0) delete($scope.productObject[$scope.index].counter);
+
+                    // if ( $scope.productObject[$scope.index].counter == 0) delete($scope.productObject[$scope.index].counter);
                      // when  zero clear the counter property
 
+                    $scope.$parent.$parent.counter = parseInt(improveService.selectedCount($scope.productObject).counter);
+                    //  count the number of counter property in a cart using Improve Service
 
-                     selectedCount = _.countBy($scope.productObject, function(num) {
-                            return (num.counter != 0 && num.counter != undefined) ? 'counter': 'left';
-                     });  // count the number of property counter
+                    productStorage = improveService.findingSorted($scope.productObject, "counter").reverse();
+                    //find the property counter then sort it by counter by desc order
 
-                      
-                    $scope.$parent.$parent.counter = parseInt(selectedCount.counter); // parent counter number items
+                    localStorageService.set('productStorage',productStorage);  // set and save
 
-                    /*sorted =  _.sortBy($scope.productObject, function(o) { return o.counter; });
-
-                    localStorageService.set('productStorage',sorted.reverse()); */
-
-                    findingCounter  =  _.filter($scope.productObject, function(pO){ return _.has(pO,"counter") && pO.counter != 0; });
-                    sorted =  _.sortBy(findingCounter, function(o) { return o.counter; });
-
-                    localStorageService.set('productStorage',sorted.reverse());
-
-  
 
                     $scope.$emit('response', $scope.$parent.$parent.counter);
              }; 

@@ -28,8 +28,6 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     }; */
     $scope.img_folder = 'image_download/';
- 
-
 
     $scope.display = {
           IndexRecord: 0,
@@ -39,27 +37,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     $scope.product = [];
 
-    /*$scope.RecordData = [
-           {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'mamypoko.jpg',availablestock:4},
-           {id:"2",name:"Tipco FREE DELIVERY set - Pick your own",subname:"",price:235.00,per:'2.32 l', img: 'tipco.jpg'},
-           {id:"3",name:"Tipco FREE DELIVERY set - Orange",subname:"",price:235.00,per:'2.32 l', img: 'tipco2.jpg'},
-           {id:"4",name:"Angoon Soybean Oil",subname:"Soybean Oil",price:42.00,per:'1000 ml', img: 'soybean.jpg'},
-           {id:"5",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'wangkanai.jpg'},
-           {id:"6",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'apple.jpg'},
-           {id:"7",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'cabbage.jpg'},
-           {id:"8",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'carrot.jpg'},
-           {id:"9",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'chicken.jpg'},
-           {id:"10",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'guava.jpg'},
-           {id:"11",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'lime.jpg'},
-           {id:"12",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'pork.jpg'},
-           {id:"13",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'milk.jpg'},
-           {id:"14",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'shrimpball.jpg'},
-           {id:"15",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'spafood.jpg'},
-           {id:"16",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread1.jpg'},
-           {id:"17",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread2.jpg'},
-           {id:"18",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread3.jpg'},
- 
-    ];*/
+  
 
      $scope.RecordData = [
            {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'mamypoko.jpg',availablestock:4},
@@ -116,52 +94,28 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
             } 
 
         }    
-         //$scope.product = uniqueList;      
+          
     };
 
-     
+    
+    if (localStorageService.get('productStorage') !== null) {
+      
+        $scope.productSave = localStorageService.get('productStorage'); // get  product cart directives
+         $scope.RecordData =  improveService.uniqueList($scope.productSave.concat($scope.RecordData));
+        //  merge the Local Storage then put to the Existing data then remove duplicates
+        $scope.loadMoreRecords();
 
-        if (localStorageService.get('productStorage') !== null) {
-          //$scope.product = localStorageService.get('productStorage'); // get  product cart directives
-          $scope.productSave = localStorageService.get('productStorage');
-
-
-        $scope.RecordData =  $scope.productSave.concat($scope.RecordData);
-
-         uniqueList = _.uniq($scope.RecordData, function(item, key, id) { 
-             return item.id;
-         });
-
-         $scope.RecordData = uniqueList;
-
-         console.log($scope.RecordData);
-
-         $scope.loadMoreRecords();
-
-         /*  $scope.productTest =  $scope.productSave.concat($scope.RecordData);
-          console.log($scope.productTest); */
-          
+       
      } else {
           $scope.product = [];
           $scope.loadMoreRecords();
-          localStorageService.remove('productStorage');       
+          localStorageService.remove('productStorage');        
      } 
 
 
-
-  
-
-      selectedCount = _.countBy($scope.RecordData, function(num) {
-              return (num.counter != 0 && num.counter != undefined) ? 'counter': 'left';
-      });  // count the number of property counter
-
-       console.log(selectedCount);               
-     $scope.counter = parseInt(selectedCount.counter); // parent counter number items
-
-
-   //  localStorageService.set('productStorage',$scope.product);
-
-   //console.log(localStorageService.get('productStorage'));
+     $scope.counter = parseInt(improveService.selectedCount($scope.RecordData).counter);
+     //  count the number of counter property in a cart using Improve Service
+    
 
     $scope.openCart = function(p, size) {
 
