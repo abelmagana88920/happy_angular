@@ -162,8 +162,12 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                       
                     $scope.$parent.$parent.counter = parseInt(selectedCount.counter); // parent counter number items
 
-                    sorted =  _.sortBy($scope.productObject, function(o) { return o.counter; });
+                    /*sorted =  _.sortBy($scope.productObject, function(o) { return o.counter; });
 
+                    localStorageService.set('productStorage',sorted.reverse()); */
+
+                    findingCounter  =  _.filter($scope.productObject, function(pO){ return _.has(pO,"counter") && pO.counter != 0; });
+                    sorted =  _.sortBy(findingCounter, function(o) { return o.counter; });
 
                     localStorageService.set('productStorage',sorted.reverse());
 
