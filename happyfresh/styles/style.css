@@ -332,9 +332,9 @@ body.modal-open {
   bottom: 0;
 }
 .modal-dialog {
-  margin-top: 80px;
+  margin-top: 20px;
   overflow: hidden;
-  width: 90%; /* full width */
+  width: 97%; /* full width */
 }
 .modal-title {
   font-size: 30px;
@@ -343,13 +343,13 @@ body.modal-open {
 
  
 .modal-header {
-  padding: 40px 30px;
+  padding: 10px 30px;
   background: #f7f9fa;
 }
 .modal-body {
   padding: 20px 30px;
 
-  height: 500px;
+  height: 400px;
   overflow: auto;
 }
 .modal-header small {
@@ -3995,3 +3995,8 @@ ul.h-list li:hover a {
 
   color: #059daf;
 }
+
+.left-center-right {
+  display: flex;
+  justify-content: space-between;
+} 

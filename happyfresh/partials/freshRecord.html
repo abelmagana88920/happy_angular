@@ -4,8 +4,13 @@
                 <div class="hpanel stats">
                   
                     <div class="panel-body img-responsive">
+                      
+                       <div class="left-center-right">
+                          <div>{{productObject[index].counter}} </div>
+                          <div> <a ng-click="count_cart('reset')"> X </a></div>
+                       </div>
 
-                        {{productObject[index].counter}}
+
                          <div class="row visible-md visible-lg">
                               <img class="img-responsive" src="{{'image_download/' + productObject[index].img}}">
                         </div>

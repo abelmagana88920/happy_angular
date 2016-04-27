@@ -131,17 +131,15 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
 
              if ($scope.productObject[$scope.index].counter == null ) $scope.productObject[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
-                      
-                   
+ 
 
                     if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
                               $scope.productObject[$scope.index].counter++;  
-                   else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) {
+                    else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) 
                            $scope.productObject[$scope.index].counter--;
-                            
-                   }
-                             
-
+                    else if (operation == 'reset') 
+                           $scope.productObject[$scope.index].counter=0;
+ 
                     $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.productObject[$scope.index].counter);
 
                     // if ( $scope.productObject[$scope.index].counter == 0) delete($scope.productObject[$scope.index].counter);
@@ -156,10 +154,11 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                     localStorageService.set('productStorage',productStorage);  // set and save
                     $scope.$parent.$parent.productSave = productStorage;
                     
-
-
                     $scope.$emit('responseCounter', $scope.$parent.$parent.counter);
              }; 
+
+ 
+
         },
        
         link: function($scope, element, attrs) {
