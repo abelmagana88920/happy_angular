@@ -124,9 +124,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     
 
     $scope.clearCart = function() {
-          $scope.productSave = [];
+          $scope.productSave.data = [];
           $scope.display = angular.copy($scope.displayInitial);
-          $scope.product = [];
+          $scope.product.data = [];
           $scope.RecordData = angular.copy($scope.RD); //initial data
           $scope.$emit('responseCounter', 0); 
           localStorageService.remove('productStorage'); 
