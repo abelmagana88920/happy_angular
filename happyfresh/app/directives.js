@@ -131,7 +131,8 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
 
              if ($scope.productObject[$scope.index].counter == null ) $scope.productObject[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
-                        
+                      
+                   
 
                     if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
                               $scope.productObject[$scope.index].counter++;  
@@ -141,7 +142,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                    }
                              
 
-                    $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.count);
+                    $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.productObject[$scope.index].counter);
 
                     // if ( $scope.productObject[$scope.index].counter == 0) delete($scope.productObject[$scope.index].counter);
                      // when  zero clear the counter property

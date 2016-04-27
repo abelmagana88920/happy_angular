@@ -135,6 +135,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                 controller: 'openCartCtrl',
                 size: 'lg',
                 scope:$scope,
+                backdrop: 'static',
                 resolve: {
                   item: function () {
                     return p;
@@ -144,8 +145,8 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
         modalInstance.result.then(function(selectedObject) {
 
-              
-
+              $scope.productSave = selectedObject;
+              console.log(selectedObject);
                 
             /*if(selectedObject.save == "insert"){
                 $scope['t_name'][$scope.tables_name].push(selectedObject);

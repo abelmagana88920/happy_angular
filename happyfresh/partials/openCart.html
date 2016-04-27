@@ -1,8 +1,16 @@
  
+  
+
+  <div class="modal-header">
+            <div style="position:fixed"> <a ng-click="save();">Save</a> </div>
+     </div>
+
   <br>
-   <product-cart style="overflow: visible; bottom; 300px;" ng-repeat="pr in productSave" product-object="productSave" number-object="number" index="{{$index}}" parent="{{$parent}}" size-grid="col-md-2">
-    </product-cart>
-  <div style="clear:both"></div>   
+  <div class="modal-body">
+	   <product-cart style="overflow: visible; bottom; 300px;" ng-repeat="pr in productSave" product-object="productSave" number-object="number" index="{{$index}}" parent="{{$parent}}" size-grid="col-md-2">
+	    </product-cart>
+	  <div style="clear:both"></div>   
+  </div>
   &nbsp;
 
 
