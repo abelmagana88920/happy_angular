@@ -41,7 +41,7 @@
     $scope.menuTree = improveService.unflattenTree($scope.menus); 
 
     // getting (on) scope from child controller then (emit) to parent controller
-    $scope.$on('response', function (evnt, data) {
+    $scope.$on('responseCounter', function (evnt, data) {
          $scope.counterGlobal = data;
     });
     

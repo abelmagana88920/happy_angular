@@ -34,12 +34,13 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           NumRecords: 4,
           DivideRecords: 0
     };
+    $scope.displayInitial = angular.copy($scope.display);
+ 
 
     $scope.product = [];
 
   
-
-     $scope.RecordData = [
+    $scope.RD = [
            {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'mamypoko.jpg',availablestock:4},
            {id:"2",name:"Tipco FREE DELIVERY set - Pick your own",subname:"",price:235.00,per:'2.32 l', img: 'tipco.jpg'},
            {id:"3",name:"Tipco FREE DELIVERY set - Orange",subname:"",price:235.00,per:'2.32 l', img: 'tipco2.jpg'},
@@ -80,10 +81,11 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            {id:"36",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread3.jpg'},
             
            
-    ];
+    ]; //initial Data
 
-   
-    
+    $scope.RecordData = angular.copy($scope.RD); //for processing prevent two way binding
+
+     
     $scope.loadMoreRecords = function() {
         $scope.display.DivideRecords++;
 
@@ -105,7 +107,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
         //  merge the Local Storage then put to the Existing data then remove duplicates
     
      } else {
-          $scope.productSave = $scope.product
+          $scope.productSave = $scope.product;
 
           localStorageService.remove('productStorage');    //clear the storage    
      } 
@@ -115,6 +117,24 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
      $scope.counter = improveService.selectedCount($scope.RecordData).counter;
      //  count the number of counter property in a cart using Improve Service
     
+
+
+
+    $scope.clearCart = function() {
+          $scope.productSave = [];
+          $scope.display = angular.copy($scope.displayInitial);
+          
+          $scope.product = [];
+
+          $scope.RecordData = angular.copy($scope.RD); //initial data
+ 
+          $scope.$emit('responseCounter', 0); 
+          localStorageService.remove('productStorage'); 
+
+          $scope.loadMoreRecords();
+
+
+    };
 
     $scope.openCart = function(p, size) {
 
@@ -150,7 +170,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
 
 
-    $scope.$emit('response', $scope.counter); // call the function on the parent global controller
+    $scope.$emit('responseCounter', $scope.counter); // call the function on the parent global controller
     
     variableService.passed($scope,variableService); //global passed all scope
     
