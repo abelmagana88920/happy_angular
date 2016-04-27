@@ -122,34 +122,38 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
               
         },
         controller: function ($scope) { 
-
-             var available_stock = $scope.productObject[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject[$scope.index].availablestock;
+              
+             var available_stock = $scope.productObject.data[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject.data[$scope.index].availablestock;
             
-             $scope.productObject[$scope.index].availablestock = $scope.productObject[$scope.index].availablestock == undefined ? 'Always Available': $scope.productObject[$scope.index].availablestock;
+             $scope.productObject.data[$scope.index].availablestock = $scope.productObject.data[$scope.index].availablestock == undefined ? 'Always Available': $scope.productObject.data[$scope.index].availablestock;
           
 
 
-             if ($scope.productObject[$scope.index].counter == null ) $scope.productObject[$scope.index].counter=0;
+             if ($scope.productObject.data[$scope.index].counter == null ) $scope.productObject.data[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
  
 
-                    if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
-                              $scope.productObject[$scope.index].counter++;  
-                    else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) 
-                           $scope.productObject[$scope.index].counter--;
+                    if (operation == 'plus' && ($scope.productObject.data[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
+                              $scope.productObject.data[$scope.index].counter++;  
+                    else if (operation == 'minus' && $scope.productObject.data[$scope.index].counter>0) 
+                           $scope.productObject.data[$scope.index].counter--;
                     else if (operation == 'reset') 
-                           $scope.productObject[$scope.index].counter=0;
+                           $scope.productObject.data[$scope.index].counter=0;
  
-                    $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.productObject[$scope.index].counter);
+                    $scope.left = $scope.productObject.data[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.productObject.data[$scope.index].counter);
 
-                    // if ( $scope.productObject[$scope.index].counter == 0) delete($scope.productObject[$scope.index].counter);
+                    // if ( $scope.productObject.data[$scope.index].counter == 0) delete($scope.productObject.data[$scope.index].counter);
                      // when  zero clear the counter property
 
-                    $scope.$parent.$parent.counter = parseInt(improveService.selectedCount($scope.productObject).counter);
+                    $scope.$parent.$parent.counter = parseInt(improveService.selectedCount($scope.productObject.data).counter);
                     //  count the number of counter property in a cart using Improve Service
 
-                    productStorage = improveService.findingSorted($scope.productObject, "counter");
+
+                    productStorage = {}
+                    productStorage.data = improveService.findingSorted($scope.productObject.data, "counter");
                     //find the property counter then sort it by counter by desc order
+
+                     
                    
                     localStorageService.set('productStorage',productStorage);  // set and save
                     $scope.$parent.$parent.productSave = productStorage;
@@ -163,7 +167,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
        
         link: function($scope, element, attrs) {
           
-              $scope.productObject[$scope.index].dataDuration = 800 * (parseInt($scope.index%4)+1);  // changes the value of animation resets to 4 columns
+              $scope.productObject.data[$scope.index].dataDuration = 800 * (parseInt($scope.index%4)+1);  // changes the value of animation resets to 4 columns
                
              // scope.productObject[scope.index].hello = scope.$parent.$parent.counter++; // update the value of the parent controller
                        

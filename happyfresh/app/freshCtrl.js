@@ -36,11 +36,12 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     };
     $scope.displayInitial = angular.copy($scope.display);
  
-
-    $scope.product = [];
-
+    $scope.product = {};
+    $scope.product.data=[];
+    
+    $scope.RD = {};
   
-    $scope.RD = [
+    $scope.RD.data = [
            {id:"1",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'mamypoko.jpg',availablestock:4},
            {id:"2",name:"Tipco FREE DELIVERY set - Pick your own",subname:"",price:235.00,per:'2.32 l', img: 'tipco.jpg'},
            {id:"3",name:"Tipco FREE DELIVERY set - Orange",subname:"",price:235.00,per:'2.32 l', img: 'tipco2.jpg'},
@@ -85,13 +86,15 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     $scope.RecordData = angular.copy($scope.RD); //for processing prevent two way binding
 
+   
      
     $scope.loadMoreRecords = function() {
         $scope.display.DivideRecords++;
 
          for (var i=($scope.display.IndexRecord); i<=($scope.display.NumRecords*$scope.display.DivideRecords); i++) {
-            if ($scope.RecordData[i] !== undefined) {
-                $scope.product.push($scope.RecordData[i]);
+            if ($scope.RecordData.data[i] !== undefined) {
+
+                $scope.product.data.push($scope.RecordData.data[i]);
                 $scope.display.IndexRecord++;
             } 
 
@@ -101,9 +104,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     
     if (localStorageService.get('productStorage') !== null) {
-      
+        
         $scope.productSave = localStorageService.get('productStorage'); // get  product cart directives
-        $scope.RecordData =  improveService.uniqueList($scope.productSave.concat($scope.RecordData));
+        $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
         //  merge the Local Storage then put to the Existing data then remove duplicates
     
      } else {
@@ -114,7 +117,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
      $scope.loadMoreRecords(); //load initial or more records
 
-     $scope.counter = improveService.selectedCount($scope.RecordData).counter;
+
+
+     $scope.counter = improveService.selectedCount($scope.RecordData.data).counter;
      //  count the number of counter property in a cart using Improve Service
     
 

@@ -1,39 +1,39 @@
  
-  <div class="{{sizeGrid}} {{wowValue}} fadeInDown" data-wow-duration="{{productObject[index].dataDuration}}ms">
+  <div class="{{sizeGrid}} {{wowValue}} fadeInDown" data-wow-duration="{{productObject.data[index].dataDuration}}ms">
                
                 <div class="hpanel stats">
                   
                     <div class="panel-body img-responsive">
                       
                        <div class="left-center-right">
-                          <div>{{productObject[index].counter}} </div>
+                          <div>{{productObject.data[index].counter}} </div>
                           <div> <a ng-click="count_cart('reset')"> X </a></div>
                        </div>
 
 
                          <div class="row visible-md visible-lg">
-                              <img class="img-responsive" src="{{'image_download/' + productObject[index].img}}">
+                              <img class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
                         </div>
                       
                         <div class="row visible-xs visible-sm">
                             <div class="col-xs-6">
-                              <img class="img-responsive" src="{{'image_download/' + productObject[index].img}}">
+                              <img class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
                             </div>
                             <div class="col-xs-6" >
                                 <div><br><br><br><br></div>
-                               <h4>{{productObject[index].name}}</h4>
-                               <h5 class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</h5>
+                               <h4>{{productObject.data[index].name}}</h4>
+                               <h5 class="product_price">{{productObject.data[index].price}} / {{productObject.data[index].per}}</h5>
                                <br>  
-                               Available Stock: {{ productObject[index].availablestock }}
+                               Available Stock: {{ productObject.data[index].availablestock }}
                                   <br>
                                    {{ left }}
                                   <br>
 
-                              <br>{{productObject[index].subname}}
+                              <br>{{productObject.data[index].subname}}
                               <br>
 
                                     <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                       <span class="cart-quantity"> {{productObject[index].counter}} </span>                                       
+                                       <span class="cart-quantity"> {{productObject.data[index].counter}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                             
                             </div>
@@ -48,18 +48,18 @@
             <!-- on large device -->
                     <div align="center" class="panel-footer mh-45 hidden-xs hidden-sm">
                        <div style="background-color:#ffffff">
-                        {{productObject[index].name}}
-                               <div class="product_price">{{productObject[index].price}} / {{productObject[index].per}}</div>
+                        {{productObject.data[index].name}}
+                               <div class="product_price">{{productObject.data[index].price}} / {{productObject.data[index].per}}</div>
                                
                                <div class="cart-hidden" >
                                 
-                                  Available Stock: {{ productObject[index].availablestock }}
+                                  Available Stock: {{ productObject.data[index].availablestock }}
                                   <br>
                                     {{ left }}
                                   <br>
                                   <br>
                                   <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                       <span class="cart-quantity" ng-class="{'Will left: 0':'green'}[left]"> {{productObject[index].counter}} </span>                                       
+                                       <span class="cart-quantity" ng-class="{'Will left: 0':'green'}[left]"> {{productObject.data[index].counter}} </span>                                       
                                    <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
                                </div>
                         </div>
