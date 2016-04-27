@@ -117,6 +117,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
              numberObject: '=',
              index: '@',
              parent: '@',
+             wowValue: '@'
               
         },
         controller: function ($scope) { 
@@ -125,14 +126,19 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
             
              $scope.productObject[$scope.index].availablestock = $scope.productObject[$scope.index].availablestock == undefined ? 'Always Available': $scope.productObject[$scope.index].availablestock;
           
+
+
              if ($scope.productObject[$scope.index].counter == null ) $scope.productObject[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
                         
 
                     if (operation == 'plus' && ($scope.productObject[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
                               $scope.productObject[$scope.index].counter++;  
-                   else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) 
-                             $scope.productObject[$scope.index].counter--;
+                   else if (operation == 'minus' && $scope.productObject[$scope.index].counter>0) {
+                           $scope.productObject[$scope.index].counter--;
+                            
+                   }
+                             
 
                     $scope.left = $scope.productObject[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.count);
 
@@ -142,11 +148,12 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                     $scope.$parent.$parent.counter = parseInt(improveService.selectedCount($scope.productObject).counter);
                     //  count the number of counter property in a cart using Improve Service
 
-                    productStorage = improveService.findingSorted($scope.productObject, "counter").reverse();
+                    productStorage = improveService.findingSorted($scope.productObject, "counter");
                     //find the property counter then sort it by counter by desc order
-                    
-                    $scope.$parent.$parent.productSave =productStorage;
+                   
                     localStorageService.set('productStorage',productStorage);  // set and save
+                    $scope.$parent.$parent.productSave = productStorage;
+                    
 
 
                     $scope.$emit('responseCounter', $scope.$parent.$parent.counter);

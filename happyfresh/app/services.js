@@ -62,7 +62,8 @@ app.service('improveService', function() {
                     findingCounter  =  _.filter(arrObjectData, function(pO){ return _.has(pO,property) && pO[property] != 0; });
                     sorted =  _.sortBy(findingCounter, function(o) { return o[property]; });
 
-                    return sorted;
+                    //return sorted;
+                    return findingCounter;
     };
      
 

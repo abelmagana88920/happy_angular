@@ -15,3 +15,10 @@ app.filter('prettyJSON', function () {
     }
     return prettyPrintJson;
 });
+
+
+app.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});

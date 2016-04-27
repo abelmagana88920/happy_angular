@@ -131,17 +131,20 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     $scope.openCart = function(p, size) {
 
           var modalInstance = $modal.open({
-          templateUrl: 'partials/openCart.html',
-          controller: 'openCartCtrl',
-          size: size,
-          scope:$scope,
-          resolve: {
-            item: function () {
-              return p;
-            }
-          }
-    });
+                templateUrl: 'partials/openCart.html',
+                controller: 'openCartCtrl',
+                size: size,
+                scope:$scope,
+                resolve: {
+                  item: function () {
+                    return p;
+                  }
+                }
+          });
+
         modalInstance.result.then(function(selectedObject) {
+
+              
 
                 
             /*if(selectedObject.save == "insert"){
