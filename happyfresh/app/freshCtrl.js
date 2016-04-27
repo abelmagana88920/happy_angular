@@ -59,7 +59,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            {id:"17",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread2.jpg'},
            {id:"18",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread3.jpg'},
  
-          /*
+          
             {id:"19",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'mamypoko.jpg',availablestock:4},
            {id:"20",name:"Tipco FREE DELIVERY set - Pick your own",subname:"",price:235.00,per:'2.32 l', img: 'tipco.jpg'},
            {id:"21",name:"Tipco FREE DELIVERY set - Orange",subname:"",price:235.00,per:'2.32 l', img: 'tipco2.jpg'},
@@ -78,7 +78,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            {id:"34",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread1.jpg'},
            {id:"35",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread2.jpg'},
            {id:"36",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread3.jpg'},
-            */
+            
            
     ];
 
@@ -101,19 +101,18 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     if (localStorageService.get('productStorage') !== null) {
       
         $scope.productSave = localStorageService.get('productStorage'); // get  product cart directives
-         $scope.RecordData =  improveService.uniqueList($scope.productSave.concat($scope.RecordData));
+        $scope.RecordData =  improveService.uniqueList($scope.productSave.concat($scope.RecordData));
         //  merge the Local Storage then put to the Existing data then remove duplicates
-        $scope.loadMoreRecords();
-
-       
+    
      } else {
-          $scope.product = [];
-          $scope.loadMoreRecords();
-          localStorageService.remove('productStorage');        
+          $scope.productSave = $scope.product
+
+          localStorageService.remove('productStorage');    //clear the storage    
      } 
 
+     $scope.loadMoreRecords(); //load initial or more records
 
-     $scope.counter = parseInt(improveService.selectedCount($scope.RecordData).counter);
+     $scope.counter = improveService.selectedCount($scope.RecordData).counter;
      //  count the number of counter property in a cart using Improve Service
     
 

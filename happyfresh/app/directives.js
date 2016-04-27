@@ -144,7 +144,8 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
 
                     productStorage = improveService.findingSorted($scope.productObject, "counter").reverse();
                     //find the property counter then sort it by counter by desc order
-
+                    
+                    $scope.$parent.$parent.productSave =productStorage;
                     localStorageService.set('productStorage',productStorage);  // set and save
 
 

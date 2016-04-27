@@ -53,6 +53,8 @@ app.service('improveService', function() {
             selectedCountData = _.countBy(arrObjectData, function(num) {
               return (num.counter != 0 && num.counter != undefined) ? 'counter': 'left';
            }); 
+
+            selectedCountData.counter  = selectedCountData.counter == undefined ? 0 : selectedCountData.counter;
             return selectedCountData;
     };
 
