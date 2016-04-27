@@ -118,22 +118,14 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
      //  count the number of counter property in a cart using Improve Service
     
 
-
-
     $scope.clearCart = function() {
           $scope.productSave = [];
           $scope.display = angular.copy($scope.displayInitial);
-          
           $scope.product = [];
-
           $scope.RecordData = angular.copy($scope.RD); //initial data
- 
           $scope.$emit('responseCounter', 0); 
           localStorageService.remove('productStorage'); 
-
           $scope.loadMoreRecords();
-
-
     };
 
     $scope.openCart = function(p, size) {
