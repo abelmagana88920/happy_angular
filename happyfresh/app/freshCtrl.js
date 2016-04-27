@@ -151,11 +151,11 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
   
 
-      selectedCount = _.countBy($scope.product, function(num) {
-              return num.counter != 0 ? 'counter': 'left';
+      selectedCount = _.countBy($scope.RecordData, function(num) {
+              return (num.counter != 0 && num.counter != undefined) ? 'counter': 'left';
       });  // count the number of property counter
 
-                      
+       console.log(selectedCount);               
      $scope.counter = parseInt(selectedCount.counter); // parent counter number items
 
 

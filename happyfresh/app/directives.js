@@ -156,7 +156,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
 
 
                      selectedCount = _.countBy($scope.productObject, function(num) {
-                                   return num.counter != 0 ? 'counter': 'left';
+                            return (num.counter != 0 && num.counter != undefined) ? 'counter': 'left';
                      });  // count the number of property counter
 
                       
