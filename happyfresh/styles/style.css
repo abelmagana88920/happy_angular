@@ -333,6 +333,7 @@ body.modal-open {
 }
 .modal-dialog {
   margin-top: 80px;
+  width: auto; /* full width */
 }
 .modal-title {
   font-size: 30px;

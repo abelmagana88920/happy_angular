@@ -133,7 +133,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           var modalInstance = $modal.open({
                 templateUrl: 'partials/openCart.html',
                 controller: 'openCartCtrl',
-                size: size,
+                size: 'lg',
                 scope:$scope,
                 resolve: {
                   item: function () {

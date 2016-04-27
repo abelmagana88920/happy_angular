@@ -117,7 +117,8 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
              numberObject: '=',
              index: '@',
              parent: '@',
-             wowValue: '@'
+             wowValue: '@',
+             sizeGrid: '@',
               
         },
         controller: function ($scope) { 
