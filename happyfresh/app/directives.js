@@ -166,7 +166,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                     localStorageService.set('productStorage[' + $scope.menuCategory.id+ ']',productStorage);  // set and save
                     $scope.$parent.$parent.productSave = productStorage;
 
-                    
+                   // $scope.$parent.$parent.productSaveTemp = productStorage;
                     
                     $scope.$emit('responseCounter', $scope.$parent.$parent.counter);
              }; 

@@ -125,7 +125,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
       $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
        
      
-     /*
+     
 
       $scope.productSaveTemp= {};
       $scope.productSaveTemp.data = [];
@@ -135,7 +135,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
             objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
             $scope.productSaveTemp.data = $scope.productSaveTemp.data.concat(objectPr.data);
       
-     } */
+     } 
+
+
        
 
 
@@ -202,10 +204,10 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           });
 
         modalInstance.result.then(function(selectedObject) {
+              
 
               $scope.productSave = selectedObject;
-
-              console.log($scope.productSave);
+ 
             //  console.log(selectedObject);
                 
             /*if(selectedObject.save == "insert"){
@@ -220,6 +222,30 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
               
             }
               $scope.totalItems = $scope['t_name'][$scope.tables_name].length; */
+        });
+
+    };
+
+
+
+
+     $scope.totalCart = function(p, size) {
+          var modalInstance = $modal.open({
+                templateUrl: 'partials/totalCart.html',
+                controller: 'totalCartCtrl',
+                size: 'lg',
+                scope:$scope,
+                backdrop: 'static',
+                resolve: {
+                  item: function () {
+                    return p;
+                  }
+                }
+          });
+
+        modalInstance.result.then(function(selectedObject) {
+              $scope.productSaveTemp = selectedObject;
+              $scope.productSave = selectedObject;
         });
 
     };
