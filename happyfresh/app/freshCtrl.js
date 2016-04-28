@@ -41,6 +41,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
      //console.log($scope.$parent.menuTree);
     $scope.product = {};
     $scope.product.data=[];
+    $scope.product.dataCategory=[];
     
     $scope.RD = {};
     var databaseRD = [
@@ -116,16 +117,44 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     };
 
     
-    if (localStorageService.get('productStorage') !== null) {
-        
-        $scope.productSave = localStorageService.get('productStorage'); // get  product cart directives
-         
-       // $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id});  
+    if (localStorageService.get('productStorage['+$scope.menuCategory.id+']') !== null) {
 
+       
+      $scope.productSave = localStorageService.get('productStorage['+$scope.menuCategory.id+']'); // get  product cart directives
+      
+      $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
+       
+     
+     /*
+
+      $scope.productSaveTemp= {};
+      $scope.productSaveTemp.data = [];
+     
+     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+         
+            objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
+            $scope.productSaveTemp.data = $scope.productSaveTemp.data.concat(objectPr.data);
+      
+     } */
+       
+
+
+        /*productSaveData = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); // query where id = routeCategory ID
      
 
+        $scope.productSave.data = productSaveData.concat($scope.productSave.data); */
+
+      //  $scope.productSave.dataCategory = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
+
+       // console.log($scope.productSave); 
+        //data Category
+
        //  if ($scope.productSave.length != 0)  // if productSaveData is not empty array
-              $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
+
+
+      $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
+
+
         //  merge the Local Storage then put to the Existing data then remove duplicates
         // note: Parent body not in modal
     
@@ -136,6 +165,10 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
      } 
 
      $scope.loadMoreRecords(); //load initial or more records
+     
+    
+
+     //$scope.product.dataCategory = _.where($scope.product.data, {category: $scope.menuCategory.id});  
 
 
 
@@ -149,7 +182,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           $scope.product.data = [];
           $scope.RecordData = angular.copy($scope.RD); //initial data
           $scope.$emit('responseCounter', 0); 
-          localStorageService.remove('productStorage'); 
+          localStorageService.clearAll();
           $scope.loadMoreRecords();
     };
 
@@ -171,6 +204,8 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
         modalInstance.result.then(function(selectedObject) {
 
               $scope.productSave = selectedObject;
+
+              console.log($scope.productSave);
             //  console.log(selectedObject);
                 
             /*if(selectedObject.save == "insert"){
