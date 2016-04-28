@@ -117,15 +117,15 @@
    <li>
 
   <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree">
-        <a href="a.html"><span>{{menu.title}} </span></a>
+        <a href="#/{{menu.predicate}}"><span>{{menu.title}} </span></a>
         <ul data-ng-show="menu.children">
           <li class='has-sub' ng-repeat="submenu in menu.children">
-              <a href="{{submenu.url}}"><span> {{submenu.title}}</span> </a>
-                  <ul data-ng-show="menu.children">
+              <a href="#/{{submenu.predicate}}"><span> {{submenu.title}}</span> </a>
+                  <!--<ul data-ng-show="menu.children">
                     <li class='has-sub' ng-repeat="submenu in menu.children">
                         <a href="{{submenu.url}}"><span> {{submenu.title}}</span> </a>
                     </li>
-                  </ul>
+                  </ul> -->
           </li>
         </ul>
   </li>

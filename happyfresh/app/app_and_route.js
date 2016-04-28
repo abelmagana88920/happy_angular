@@ -4,7 +4,7 @@ var app = angular.module('myApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate','under
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-    when('/', {
+    when('/:category', {
       title: 'Fresh',
       templateUrl: 'partials/fresh.html',
       controller: 'freshCtrl',

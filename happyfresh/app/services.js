@@ -20,12 +20,30 @@ app.service('improveService', function() {
 
  
     //convert the flatten json data to a tree data  -- requires pid except index 0  note: use self instead of this
+    this.toPredicate = function(array) {
+
+         var predicate = _.each(array, function(pred){
+                if (pred.title !== undefined) {
+                       pred.predicate = pred
+                            .title.toLowerCase()
+                            .replace(/ /gi, '')
+                            .replace(/&/gi,'');
+                }
+        });
+
+         return predicate;
+    }
+
+
     this.unflattenTree = function( array, parent, tree ){
             
         tree = typeof tree !== 'undefined' ? tree : [];
         parent = typeof parent !== 'undefined' ? parent : { id: 0 };
+
+
+       
             
-        var children = _.filter( array, function(child){ return child.pid == parent.id; });
+        var children = _.filter( array, function(child){  return child.pid == parent.id; });
      
         if( !_.isEmpty( children )  ){
             if( parent.id == 0 ){

@@ -20,23 +20,35 @@
    	{   id:10, title: 'CATEGORIES', pid:0},
    	   {   id:11, title: 'Specials', pid:0, indent: true },
    	   {   id:12, title: 'Fresh Produce', pid:0, indent: true },
-   	   {   id:13, title: 'Meat & SeaFood', pid:0, indent: true },
-   	   {   id:14, title: 'Deli', pid:0, indent: true },
-   	   {   id:15, title: 'Bakery', pid:0, indent: true },
-   	   {   id:16, title: 'Dairy', pid:0, indent: true },
-   	   {   id:17, title: 'Dry & Canned Goods',pid:0, indent: true },
-   	   {   id:18, title: 'Pantry', pid:0, indent: true },
-   	   {   id:19, title: 'Beverages', pid:0, indent: true },
-   	   {   id:20, title: 'Snacks', pid:0, indent: true },
-   	   {   id:21, title: 'Frozen', pid:0, indent: true },
-   	   {   id:22, title: 'Health & Beauty', pid:0, indent: true },
-   	   {   id:23, title: 'Babies', pid:0, indent: true },
-   	   {   id:24, title: 'Pets', pid:0, indent: true },
-   	   {   id:25, title: 'Household', pid:0, indent: true },
-   	   {   id:26, title: 'Ready to eat', pid:0, indent: true },
+             {   id:13, title: 'Fresh Fruits', pid:12 },
+             {   id:14, title: 'Fresh Vegetables', pid:12 },
+             {   id:15, title: 'Fresh Herbs', pid:12 },
+             {   id:16, title: 'Fresh Produce - Other', pid:12 },
+   	   {   id:17, title: 'Meat & SeaFood', pid:0, indent: true },
+   	   {   id:18, title: 'Deli', pid:0, indent: true },
+   	   {   id:19, title: 'Bakery', pid:0, indent: true },
+   	   {   id:20, title: 'Dairy', pid:0, indent: true },
+   	   {   id:21, title: 'Dry & Canned Goods',pid:0, indent: true },
+   	   {   id:22, title: 'Pantry', pid:0, indent: true },
+   	   {   id:23, title: 'Beverages', pid:0, indent: true },
+   	   {   id:24, title: 'Snacks', pid:0, indent: true },
+   	   {   id:25, title: 'Frozen', pid:0, indent: true },
+   	   {   id:26, title: 'Health & Beauty', pid:0, indent: true },
+   	   {   id:27, title: 'Babies', pid:0, indent: true },
+   	   {   id:28, title: 'Pets', pid:0, indent: true },
+   	   {   id:29, title: 'Household', pid:0, indent: true },
+   	   {   id:30, title: 'Ready to eat', pid:0, indent: true },
    
     ];
 
+
+    /*console.log($scope.menus[12]
+        .title.toLowerCase()
+        .replace(/ /gi, '')
+        .replace(/&/gi,'')
+    ); */
+
+    $scope.menus = improveService.toPredicate($scope.menus);
   
     $scope.menuTree = improveService.unflattenTree($scope.menus); 
 
