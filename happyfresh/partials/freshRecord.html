@@ -1,5 +1,5 @@
- 
-  <div class="{{sizeGrid}} {{wowValue}} fadeInDown" data-wow-duration="{{productObject.data[index].dataDuration}}ms">
+
+  <div ng-if="productObject.data[index].category == menuCategory.id || modalDisplay" class="{{sizeGrid}} {{wowValue}} fadeInDown" data-wow-duration="{{productObject.data[index].dataDuration}}ms">
                
                 <div class="hpanel stats">
                   
@@ -7,7 +7,9 @@
                       
                        <div class="left-center-right">
                           <div>{{productObject.data[index].counter}} </div>
-                            <div>Testing {{productObject.data[index].category}} </div>
+                            <div>PRCAT {{productObject.data[index].category}} </div>
+
+                              <div>URLCAT {{menuCategory.id}} </div>
                           <div> <a ng-click="count_cart('reset')"> X </a></div>
                        </div>
 

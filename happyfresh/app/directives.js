@@ -119,9 +119,12 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
              parent: '@',
              wowValue: '@',
              sizeGrid: '@',
-              
+             menuCategory: '=',
+             modalDisplay: '@'
         },
         controller: function ($scope) { 
+
+
               
              var available_stock = $scope.productObject.data[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject.data[$scope.index].availablestock;
             
@@ -170,7 +173,8 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
               $scope.productObject.data[$scope.index].dataDuration = 800 * (parseInt($scope.index%4)+1);  // changes the value of animation resets to 4 columns
                
              // scope.productObject[scope.index].hello = scope.$parent.$parent.counter++; // update the value of the parent controller
-                       
+                 
+  
         }
        
       };
@@ -242,7 +246,7 @@ app.directive('resolveLoader', function($rootScope, $timeout) {
 
                     } */ 
             
-                         console.log(window.innerHeight + ' ' + window.scrollY + ' ' + hiddenContentHeight);
+                         //console.log(window.innerHeight + ' ' + window.scrollY + ' ' + hiddenContentHeight);
                     if ((window.innerHeight + window.scrollY) >= hiddenContentHeight) {
                          scope.$apply(attrs.whenScrollEnds);
                     }

@@ -119,8 +119,15 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     if (localStorageService.get('productStorage') !== null) {
         
         $scope.productSave = localStorageService.get('productStorage'); // get  product cart directives
-        $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
+         
+       // $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id});  
+
+     
+
+       //  if ($scope.productSave.length != 0)  // if productSaveData is not empty array
+              $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
         //  merge the Local Storage then put to the Existing data then remove duplicates
+        // note: Parent body not in modal
     
      } else {
           $scope.productSave = $scope.product;
