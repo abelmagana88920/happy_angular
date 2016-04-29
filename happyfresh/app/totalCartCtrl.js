@@ -17,6 +17,7 @@ app.controller('totalCartCtrl', function ($scope, $modalInstance, $route, item, 
                 $scope.productSaveIndex[numb].data = _.where($scope.productSaveIndex[numb].data, {category: numb});  
             }
 
+            console.log(localStorage.key( i ));
 
      }  
 

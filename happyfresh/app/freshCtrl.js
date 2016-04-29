@@ -118,45 +118,53 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     
  
+ 
 
-    if (localStorageService.get('productStorage['+$scope.menuCategory.id+']') !== null) {
+              if (localStorageService.get('productStorage['+$scope.menuCategory.id+']') !== null) {
 
-       
-      $scope.productSave = localStorageService.get('productStorage['+$scope.menuCategory.id+']'); // get  product cart directives
-      
-      $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
-       
+                  $scope.productSave = localStorageService.get('productStorage['+$scope.menuCategory.id+']'); // get  product cart directives
+
+                  $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
+
+                  $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
+                   
+               } 
+                
+               else {
+
+                         children_menu =  _.where($scope.$parent.menus, {pid: $scope.menuCategory.id});    
+                        _.each(children_menu,function(child) {
+
+                                   if (localStorageService.get('productStorage['+child.id+']') !== null) {
+
+                                      $scope.productSave = localStorageService.get('productStorage['+child.id+']'); // get  product cart directives
+
+                                      $scope.productSave.data = _.where($scope.productSave.data, {category: child.id}); 
+
+                                      $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
+                                       
+                                  
+                                   } 
+ 
+                        });
+
+                   /* $scope.productSave = $scope.product;
+
+                    localStorageService.remove('productStorage');    //clear the storage   
+
+                    */ 
+               } 
+
+
+
+
+
+
+
 
      
-      $scope.productSaveTemp= {};
-      $scope.productSaveTemp.data = [];
-      
-
-
-        /*productSaveData = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); // query where id = routeCategory ID
-     
-
-        $scope.productSave.data = productSaveData.concat($scope.productSave.data); */
-
-      //  $scope.productSave.dataCategory = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
-
-       // console.log($scope.productSave); 
-        //data Category
-
-       //  if ($scope.productSave.length != 0)  // if productSaveData is not empty array
-
-
-      $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
-
-
-        //  merge the Local Storage then put to the Existing data then remove duplicates
+      //  merge the Local Storage then put to the Existing data then remove duplicates
         // note: Parent body not in modal
-    
-     } else {
-          $scope.productSave = $scope.product;
-
-          localStorageService.remove('productStorage');    //clear the storage    
-     } 
 
      $scope.loadMoreRecords(); //load initial or more records
      
