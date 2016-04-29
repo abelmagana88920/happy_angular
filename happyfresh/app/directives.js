@@ -125,8 +125,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
         },
         controller: function ($scope) { 
 
-             var d=new Date();
-             $scope.productObject.data[$scope.index].dates =d.valueOf(); 
+             
               
              var available_stock = $scope.productObject.data[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject.data[$scope.index].availablestock;
             

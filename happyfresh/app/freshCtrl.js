@@ -83,7 +83,11 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            {id:"34",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread1.jpg', category:14 },
            {id:"35",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread2.jpg', category:14 },
            {id:"36",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'bread3.jpg', category:15 },
-            
+           
+
+           {id:"37",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'mamypoko.jpg',availablestock:4, category:17},
+           {id:"38",name:"Tipco FREE DELIVERY set - Pick your own",subname:"",price:235.00,per:'2.32 l', img: 'tipco.jpg', category:17},
+           
            
     ]; //initial Data
 
@@ -118,7 +122,8 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
     
  
- 
+            $scope.productSaveTemp = {};
+            $scope.productSaveTemp.data=[];
 
               if (localStorageService.get('productStorage['+$scope.menuCategory.id+']') !== null) {
 
@@ -140,6 +145,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                                       $scope.productSave = localStorageService.get('productStorage['+child.id+']'); // get  product cart directives
 
                                       $scope.productSave.data = _.where($scope.productSave.data, {category: child.id}); 
+                                      $scope.productSaveTemp.data =  improveService.uniqueList($scope.productSave.data.concat($scope.productSaveTemp.data));
 
                                       $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
                                        
@@ -153,7 +159,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                     localStorageService.remove('productStorage');    //clear the storage   
 
                     */ 
-               } 
+               }
+
+               $scope.productSave.data = angular.copy($scope.productSaveTemp.data); 
 
 
 
@@ -208,10 +216,10 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
         modalInstance.result.then(function(selectedObject) {
               
 
-              $scope.productSave = selectedObject;
+             // $scope.productSave = selectedObject;
 
-               $scope.productSaveTemp= {};
-             $scope.productSaveTemp.data = [];
+            // $scope.productSaveTemp= {};
+           //  $scope.productSaveTemp.data = [];
                    
  
             //  console.log(selectedObject);
