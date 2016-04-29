@@ -120,11 +120,13 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
              wowValue: '@',
              sizeGrid: '@',
              menuCategory: '=',
-             modalDisplay: '@'
+             modalDisplay: '@',
+             totalCart: '@'
         },
         controller: function ($scope) { 
 
-
+             var d=new Date();
+             $scope.productObject.data[$scope.index].dates =d.valueOf(); 
               
              var available_stock = $scope.productObject.data[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject.data[$scope.index].availablestock;
             
@@ -156,17 +158,41 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                     productStorage.data = improveService.findingSorted($scope.productObject.data, "counter");
                     //find the property counter then sort it by counter by desc order
 
-                    
-
-
-
-                      
                      
                    
-                    localStorageService.set('productStorage[' + $scope.menuCategory.id+ ']',productStorage);  // set and save
+                    localStorageService.set('productStorage[' + $scope.productObject.data[$scope.index].category+ ']',productStorage);  // set and save
+                   
+
                     $scope.$parent.$parent.productSave = productStorage;
 
                    // $scope.$parent.$parent.productSaveTemp = productStorage;
+
+
+                 /*
+
+                  if (!$scope.totalCart) {
+
+                         
+                         $scope.$parent.$parent.productSaveTemp= {};
+                         $scope.$parent.$parent.productSaveTemp.data = [];
+                         
+                         for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+                             
+                                objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
+                                 
+                                console.log(objectPr);
+                               
+                                $scope.$parent.$parent.productSaveTemp.data = objectPr.data.concat($scope.$parent.$parent.productSaveTemp.data);
+                          
+                         } 
+
+                         
+                  } else {
+
+                       console.log($scope.$parent.$parent.productSaveTemp);
+                  }                      
+                  */
+
                     
                     $scope.$emit('responseCounter', $scope.$parent.$parent.counter);
              }; 

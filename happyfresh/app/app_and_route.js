@@ -13,7 +13,7 @@ app.config(['$routeProvider',
         delay: function($q, $timeout) {
           var delay = $q.defer();
          // $timeout(delay.resolve, (Date.now() - startPage));
-         $timeout(delay.resolve, 1100);
+         $timeout(delay.resolve, 400);
           return delay.promise;
         }
       }
