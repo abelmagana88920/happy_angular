@@ -1,17 +1,26 @@
 app.controller('totalCartCtrl', function ($scope, $modalInstance, $route, item, Data,variableService, improveService, localStorageService) {
     
      //$scope.$parent.productSaveTemp =  localStorageService.get('productStorage['+ $scope.menuCategory.id +']');
-      
+       $scope.productSaveIndex = {};
 
-     if (localStorageService.get('productStorage['+13+']') !== null) {
-        $scope.productSave13 = localStorageService.get('productStorage['+13+']'); // get  product cart directives
-        $scope.productSave13.data = _.where($scope.productSave13.data, {category: 13});  
-    }
+       for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+         
+           // objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
+            var txt = localStorage.key( i );
 
-     if (localStorageService.get('productStorage['+14+']') !== null) {
-        $scope.productSave14 = localStorageService.get('productStorage['+14+']'); // get  product cart directives
-        $scope.productSave14.data = _.where($scope.productSave14.data, {category: 14});  
-    }
+            var numb = txt.match(/\d/g);
+            numb = parseInt(numb.join(""));
+
+
+            if (localStorageService.get('productStorage['+numb+']') !== null) {
+                $scope.productSaveIndex[numb] = localStorageService.get('productStorage['+numb+']'); // get  product cart directives
+                $scope.productSaveIndex[numb].data = _.where($scope.productSaveIndex[numb].data, {category: numb});  
+            }
+
+
+     }  
+
+ 
                  
 
      $scope.save = function() {
