@@ -9,15 +9,28 @@
 	    
     
        
-      <div ng-repeat="pSI in productSaveIndex">
-       
+      <div ng-repeat="(key,pSI) in productSaveIndex">
+
+         <div style="clear:both;" class="row">
+            <span class="total-cart-counter label label-success" ng-cloak ng-click="openCart({});">   
+                   {{key}}    
+           </span>
+        </div>
+
+        <br>
+        <br>
+
          <product-cart style="overflow: visible;" ng-repeat="pr in pSI.data" product-object="pSI" number-object="number" index="{{$index}}" parent="{{$parent}}"  total-cart="true" size-grid="col-md-2" menu-category="menuCategory">
             
           </product-cart>
 
+
+          <div style="clear:both;">
+           <br>
+          </div>
          <!-- <product-cart style="overflow: visible;" ng-repeat="pr in productSaveIndex[14].data" product-object="productSaveIndex[14]" number-object="number" index="{{$index}}" parent="{{$parent}}"  total-cart="true" size-grid="col-md-2" menu-category="menuCategory">
           </product-cart>
-
+        
 
           <product-cart style="overflow: visible;" ng-repeat="pr in productSaveIndex[13].data" product-object="productSaveIndex[13]" number-object="number" index="{{$index}}" parent="{{$parent}}"  total-cart="true" size-grid="col-md-2" menu-category="menuCategory">
           </product-cart> -->
