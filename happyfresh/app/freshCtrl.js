@@ -30,13 +30,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     }; */
     $scope.img_folder = 'image_download/';
 
-    $scope.display = {
-          IndexRecord: 0,
-          NumRecords: 4,
-          DivideRecords: 0
-    };
-    $scope.displayInitial = angular.copy($scope.display);
-
+  
+   
+   
     
      //console.log($scope.$parent.menuTree);
     $scope.product = {};
@@ -106,19 +102,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
    
      
-    $scope.loadMoreRecords = function() {
-        $scope.display.DivideRecords++;
-
-         for (var i=($scope.display.IndexRecord); i<=($scope.display.NumRecords*$scope.display.DivideRecords); i++) {
-            if ($scope.RecordData.data[i] !== undefined) {
-
-                $scope.product.data.push($scope.RecordData.data[i]);
-                $scope.display.IndexRecord++;
-            } 
-
-        }    
-          
-    };
+  
 
     
  
@@ -161,7 +145,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                     */ 
                }
 
-               $scope.productSave.data = angular.copy($scope.productSaveTemp.data); 
+                
 
 
 
@@ -174,17 +158,45 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
       //  merge the Local Storage then put to the Existing data then remove duplicates
         // note: Parent body not in modal
 
-     $scope.loadMoreRecords(); //load initial or more records
-     
     
+     
+   
 
      //$scope.product.dataCategory = _.where($scope.product.data, {category: $scope.menuCategory.id});  
 
 
 
      $scope.counter = improveService.selectedCount($scope.RecordData.data).counter;
+
      //  count the number of counter property in a cart using Improve Service
+
+
+      $scope.display = {
+          IndexRecord: 0,
+          NumRecords: $scope.counter+5,
+          DivideRecords: 0
+    };
+    $scope.displayInitial = angular.copy($scope.display);
+
     
+
+
+     $scope.loadMoreRecords = function() {
+        $scope.display.DivideRecords++;
+
+         for (var i=($scope.display.IndexRecord); i<=($scope.display.NumRecords*$scope.display.DivideRecords); i++) {
+            if ($scope.RecordData.data[i] !== undefined) {
+
+                $scope.product.data.push($scope.RecordData.data[i]);
+                $scope.display.IndexRecord++;
+            } 
+
+        }    
+          
+    };
+
+
+   $scope.loadMoreRecords(); //load initial or more records
 
     $scope.clearCart = function() {
           $scope.productSave.data = [];
@@ -216,7 +228,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
         modalInstance.result.then(function(selectedObject) {
               
 
-             // $scope.productSave = selectedObject;
+            //  $scope.productSave = selectedObject;
 
             // $scope.productSaveTemp= {};
            //  $scope.productSaveTemp.data = [];
