@@ -125,88 +125,46 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
         },
         controller: function ($scope) { 
 
-             
-              
-             var available_stock = $scope.productObject.data[$scope.index].availablestock == undefined ? (99999999999):$scope.productObject.data[$scope.index].availablestock;
+             var s_index = $scope.index;
+             var s_productObject = $scope.productObject;
+             var available_stock = s_productObject.data[s_index].availablestock == undefined ? (99999999999):s_productObject.data[s_index].availablestock;
             
-             $scope.productObject.data[$scope.index].availablestock = $scope.productObject.data[$scope.index].availablestock == undefined ? 'Always Available': $scope.productObject.data[$scope.index].availablestock;
+             s_productObject.data[s_index].availablestock = s_productObject.data[s_index].availablestock == undefined ? 'Always Available': s_productObject.data[s_index].availablestock;
           
+             if (s_productObject.data[s_index].counter == null ) s_productObject.data[s_index].counter=0;
 
-
-             if ($scope.productObject.data[$scope.index].counter == null ) $scope.productObject.data[$scope.index].counter=0;
              $scope.count_cart = function(operation) {
  
-
-                    if (operation == 'plus' && ($scope.productObject.data[$scope.index].counter < available_stock || available_stock == 'Always Available') ) 
-                              $scope.productObject.data[$scope.index].counter++;  
-                    else if (operation == 'minus' && $scope.productObject.data[$scope.index].counter>0) 
-                           $scope.productObject.data[$scope.index].counter--;
+                    if (operation == 'plus' && (s_productObject.data[s_index].counter < available_stock || available_stock == 'Always Available') ) 
+                            s_productObject.data[s_index].counter++;  
+                    else if (operation == 'minus' && s_productObject.data[s_index].counter>0) 
+                           s_productObject.data[s_index].counter--;
                     else if (operation == 'reset') 
-                           $scope.productObject.data[$scope.index].counter=0;
+                           s_productObject.data[s_index].counter=0;
  
-                    $scope.left = $scope.productObject.data[$scope.index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - $scope.productObject.data[$scope.index].counter);
+                    $scope.left = s_productObject.data[s_index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - s_productObject.data[s_index].counter);
 
                     // if ( $scope.productObject.data[$scope.index].counter == 0) delete($scope.productObject.data[$scope.index].counter);
                      // when  zero clear the counter property
 
-                    $scope.$parent.$parent.counter = parseInt(improveService.selectedCount($scope.productObject.data).counter);
+                    $scope.$parent.$parent.counter = parseInt(improveService.selectedCount(s_productObject.data).counter);
                     //  count the number of counter property in a cart using Improve Service
 
-
                     productStorage = {}
-                    productStorage.data = improveService.findingSorted($scope.productObject.data, "counter");
+                    productStorage.data = improveService.findingSorted(s_productObject.data, "counter");
                     //find the property counter then sort it by counter by desc order
-
-                     
-                   
-                    localStorageService.set('productStorage[' + $scope.productObject.data[$scope.index].category+ ']',productStorage);  // set and save
-                   
-
+      
+                    localStorageService.set('productStorage[' + s_productObject.data[s_index].category+ ']',productStorage);  // set and save
                     $scope.$parent.$parent.productSave = productStorage;
 
-                   // $scope.$parent.$parent.productSaveTemp = productStorage;
-
-
-                 /*
-
-                  if (!$scope.totalCart) {
-
-                         
-                         $scope.$parent.$parent.productSaveTemp= {};
-                         $scope.$parent.$parent.productSaveTemp.data = [];
-                         
-                         for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-                             
-                                objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
-                                 
-                                console.log(objectPr);
-                               
-                                $scope.$parent.$parent.productSaveTemp.data = objectPr.data.concat($scope.$parent.$parent.productSaveTemp.data);
-                          
-                         } 
-
-                         
-                  } else {
-
-                       console.log($scope.$parent.$parent.productSaveTemp);
-                  }                      
-                  */
-
-                    
                     $scope.$emit('responseCounter', $scope.$parent.$parent.counter);
              }; 
-
- 
-
         },
        
         link: function($scope, element, attrs) {
-          
-              $scope.productObject.data[$scope.index].dataDuration = 800 * (parseInt($scope.index%4)+1);  // changes the value of animation resets to 4 columns
-               
-             // scope.productObject[scope.index].hello = scope.$parent.$parent.counter++; // update the value of the parent controller
-                 
-  
+              var s_index = $scope.index;
+              $scope.productObject.data[s_index].dataDuration = 800 * (parseInt(s_index%4)+1);  // changes the value of animation resets to 4 columns           
+             // scope.productObject[scope.index].hello = scope.$parent.$parent.counter++; // update the value of the parent controller              
         }
        
       };

@@ -1,17 +1,18 @@
 app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templateCache, $route, $routeParams ,improveService, variableService, Data, localStorageService) {
    
-    $scope.categoryPredicate = $routeParams.category; // get the category parameter
-    $scope.menuCategory = _.findWhere($scope.$parent.menus, {predicate: $scope.categoryPredicate}); // convert the predicate to the object with id, title, predicate, pid so more
-    
+    var r_categoryPredicate = $routeParams.category; // get the category parameter
+    var s_pMenus = $scope.$parent.menus;
+    $scope.menuCategory = _.findWhere(s_pMenus, {predicate: r_categoryPredicate}); // convert the predicate to the object with id, title, predicate, pid so more
+    var s_menuCategory = $scope.menuCategory;
+   
     $scope.paramTableName = $route.current.$$route.paramTableName; //product
-
     improveService.setTableName($scope,improveService);
 
     $scope.columns = [
 
                     {text:"ID",predicate:"id",sortable:true,dataType:"number"},
                     {text:"Name",predicate:"name",sortable:true,input:true,required:true,focus:true},
-		    {text:"Description",predicate:"description",sortable:true,input:true,type:"textarea",required:true},
+		                {text:"Description",predicate:"description",sortable:true,input:true,type:"textarea",required:true},
                     {text:"Price",predicate:"price",sortable:true,dataType:"number",input:true,required:true},
                     {text:"Stock",predicate:"stock",sortable:true,dataType:"number",input:true,required:true},
                     {text:"Packing",predicate:"packing",reverse:true,sortable:true,dataType:"number",input:true,required:true},  
@@ -20,20 +21,19 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
                 ];
 
+    $scope.manipulateProductDataBy = function(localStorageName,category) {
+           $scope.productSave = localStorageService.get(localStorageName+'['+category.id+']'); // get  product cart directives storage
+           $scope.productSave.data = _.where($scope.productSave.data, {category: category.id}); //query those on the category
+           $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data)); 
+             //  merge the Local Storage then put to the Existing data then remove duplicates
+             // note: Parent body not in modal          
+    }
+
+
     $scope.counter = 0;
-
-    $scope.number={'timer':1, arrayNumber: []};
-
-   /* $scope.count_cart = function(operation) {
-            console.log(operation);
-
-    }; */
     $scope.img_folder = 'image_download/';
 
-  
    
-   
-    
      //console.log($scope.$parent.menuTree);
     $scope.product = {};
     $scope.product.data=[];
@@ -65,7 +65,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            {id:"20",name:"Tipco FREE DELIVERY set - Pick your own",subname:"",price:235.00,per:'2.32 l', img: 'tipco.jpg', category:13},
            {id:"21",name:"Tipco FREE DELIVERY set - Orange",subname:"",price:235.00,per:'2.32 l', img: 'tipco2.jpg', category:13 },
            {id:"22",name:"Angoon Soybean Oil",subname:"Soybean Oil",price:42.00,per:'1000 ml', img: 'soybean.jpg', category:13 },
-             {id:"23",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'wangkanai.jpg', category:13 },
+          {id:"23",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'wangkanai.jpg', category:13 },
            {id:"24",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'apple.jpg', category:13 },
            {id:"25",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'cabbage.jpg', category:13 },
            {id:"26",name:"Mamy Poko Baby Wipes 80 Sheets",subname:"Baby Wipes 80 Sheets",price:135.00,per:'packet', img: 'carrot.jpg', category:13 },
@@ -87,10 +87,10 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            
     ]; //initial Data
 
-    $scope.RD.data = _.where(databaseRD, {category: $scope.menuCategory.id}); // query where id = routeCategory ID
+    $scope.RD.data = _.where(databaseRD, {category: s_menuCategory.id}); // query where id = routeCategory ID
      
     if ($scope.RD.data.length == 0) { // if RD.DATA is empty
-        children_menu =  _.where($scope.$parent.menus, {pid: $scope.menuCategory.id});    
+        children_menu =  _.where(s_pMenus, {pid: s_menuCategory.id});    
             _.each(children_menu,function(child) {
                    $scope.RD.data = $scope.RD.data.concat(_.where(databaseRD, {category: child.id}));
             });
@@ -98,115 +98,54 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
     } // get the children of the object Data and fetch it
 
 
-    $scope.RecordData = angular.copy($scope.RD); //for processing prevent two way binding
-
-   
-     
-  
-
-    
- 
-            $scope.productSaveTemp = {};
-            $scope.productSaveTemp.data=[];
-
-              if (localStorageService.get('productStorage['+$scope.menuCategory.id+']') !== null) {
-
-                  $scope.productSave = localStorageService.get('productStorage['+$scope.menuCategory.id+']'); // get  product cart directives
-
-                  $scope.productSave.data = _.where($scope.productSave.data, {category: $scope.menuCategory.id}); 
-
-                  $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
-                   
-               } 
-                
-               else {
-
-                         children_menu =  _.where($scope.$parent.menus, {pid: $scope.menuCategory.id});    
-                        _.each(children_menu,function(child) {
-
-                                   if (localStorageService.get('productStorage['+child.id+']') !== null) {
-
-                                      $scope.productSave = localStorageService.get('productStorage['+child.id+']'); // get  product cart directives
-
-                                      $scope.productSave.data = _.where($scope.productSave.data, {category: child.id}); 
-                                      $scope.productSaveTemp.data =  improveService.uniqueList($scope.productSave.data.concat($scope.productSaveTemp.data));
-
-                                      $scope.RecordData.data =  improveService.uniqueList($scope.productSave.data.concat($scope.RecordData.data));
-                                       
-                                  
-                                   } 
- 
-                        });
-
-                   /* $scope.productSave = $scope.product;
-
-                    localStorageService.remove('productStorage');    //clear the storage   
-
-                    */ 
-               }
-
-                
+    $scope.RecordData = angular.copy($scope.RD); //for processing prevent two way binding 
 
 
+    if (localStorageService.get('productStorage['+s_menuCategory.id+']') !== null) {
+              $scope.manipulateProductDataBy('productStorage',s_menuCategory);   
+    } 
+    else { // fetch the children of menuCategory.id
+         children_menu =  _.where(s_pMenus, {pid: s_menuCategory.id});    
+               _.each(children_menu,function(child) {
+                      if (localStorageService.get('productStorage['+child.id+']') !== null) {
+                             $scope.manipulateProductDataBy('productStorage',child);   
+                      } 
+                });
+    }
 
 
-
-
-
-
-     
-      //  merge the Local Storage then put to the Existing data then remove duplicates
-        // note: Parent body not in modal
-
-    
-     
-   
-
-     //$scope.product.dataCategory = _.where($scope.product.data, {category: $scope.menuCategory.id});  
-
-
-
-     $scope.counter = improveService.selectedCount($scope.RecordData.data).counter;
-
+    $scope.counter = improveService.selectedCount($scope.RecordData.data).counter;
      //  count the number of counter property in a cart using Improve Service
-
-
-      $scope.display = {
+    $scope.display = {
           IndexRecord: 0,
           NumRecords: $scope.counter+5,
           DivideRecords: 0
     };
-    $scope.displayInitial = angular.copy($scope.display);
+    $scope.displayInitial = angular.copy($scope.display); // prevent two way binding, copy only
+ 
 
-    
-
-
-     $scope.loadMoreRecords = function() {
+  $scope.loadMoreRecords = function() {
         $scope.display.DivideRecords++;
-
          for (var i=($scope.display.IndexRecord); i<=($scope.display.NumRecords*$scope.display.DivideRecords); i++) {
             if ($scope.RecordData.data[i] !== undefined) {
 
                 $scope.product.data.push($scope.RecordData.data[i]);
                 $scope.display.IndexRecord++;
             } 
-
-        }    
-          
+        }           
     };
-
 
    $scope.loadMoreRecords(); //load initial or more records
 
-    $scope.clearCart = function() {
+   $scope.clearCart = function() {
           $scope.productSave.data = [];
-           $scope.productSaveTemp= {};
-           $scope.productSaveTemp.data = [];
           $scope.display = angular.copy($scope.displayInitial);
           $scope.product.data = [];
           $scope.RecordData = angular.copy($scope.RD); //initial data
           $scope.$emit('responseCounter', 0); 
-          localStorageService.clearAll();
+         
+          // localStorageService.clearAll();
+          improveService.clearSomeLocalStorage('ls.productStorage');
           $scope.loadMoreRecords();
     };
 
@@ -226,35 +165,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           });
 
         modalInstance.result.then(function(selectedObject) {
-              
-
-            //  $scope.productSave = selectedObject;
-
-            // $scope.productSaveTemp= {};
-           //  $scope.productSaveTemp.data = [];
-                   
- 
-            //  console.log(selectedObject);
-                
-            /*if(selectedObject.save == "insert"){
-                $scope['t_name'][$scope.tables_name].push(selectedObject);
-                $scope['t_name'][$scope.tables_name] = $filter('orderBy')($scope['t_name'][$scope.tables_name], 'id', 'reverse');
-            }else if(selectedObject.save == "update"){
-                
-
-                $scope.columns.forEach(function(column){
-                      p[column.predicate] = selectedObject[column.predicate]; //update dom fields
-                });
-              
-            }
-              $scope.totalItems = $scope['t_name'][$scope.tables_name].length; */
         });
 
     };
-
-
-
-
      $scope.totalCart = function(p, size) {
           var modalInstance = $modal.open({
                 templateUrl: 'partials/totalCart.html',
@@ -270,21 +183,14 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           });
 
         modalInstance.result.then(function(selectedObject) {
-
-               $route.reload();
-              //$scope.productSaveTemp = selectedObject;
-              
+               $route.reload();     
         });
-
     };
 
 
-
-    $scope.$emit('responseCounter', $scope.counter); // call the function on the parent global controller
-    
+    $scope.$emit('responseCounter', $scope.counter); // call the function on the parent global controller   
     variableService.passed($scope,variableService); //global passed all scope
-    
-   
+       
 
 });
 

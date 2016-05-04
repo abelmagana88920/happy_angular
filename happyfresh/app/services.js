@@ -84,6 +84,22 @@ app.service('improveService', function() {
                     return findingCounter;
     };
      
+    this.stringGetNumber = function(strings) {
+            var txt = strings;
+            var numb = txt.match(/\d/g);
+            numb = parseInt(numb.join("")); 
+            return numb;
+    };
+
+    this.clearSomeLocalStorage = function(startsWith) {
+        var myLength = startsWith.length;
+        Object.keys(sessionStorage) 
+            .forEach(function(key){ 
+                if (key.substring(0,myLength) == startsWith) {
+                    sessionStorage.removeItem(key); 
+                } 
+        }); 
+   }
 
 
     

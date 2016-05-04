@@ -26,7 +26,7 @@ angular
     this.prefix = 'ls';
 
     // You could change web storage type localstorage or sessionStorage
-    this.storageType = 'localStorage';
+    this.storageType = 'sessionStorage';
 
     // Cookie options (usually in case of fallback)
     // expiry = Number of days before cookies expire // 0 = Does not expire
