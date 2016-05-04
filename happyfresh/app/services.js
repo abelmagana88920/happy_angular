@@ -50,6 +50,7 @@ app.service('improveService', function() {
                tree = children;   
             }else{
                parent['children'] = children;
+               parent['cid'] = true;
             }
             _.each( children, function( child ){ self.unflattenTree( array, child ) } );                    
         }

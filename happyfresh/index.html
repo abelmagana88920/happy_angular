@@ -59,10 +59,7 @@
         </div>
 
  
-    
-
-
-
+  
 
 
     <nav role="navigation">
@@ -113,26 +110,37 @@
 </div>
 
 <!-- Navigation -->
-<aside id="menu">
+<aside id="menu"  >
 
 
-<div class='cssmenu'>
+
+   
+   
+ 
+       
+
+ 
+<div class='cssmenu' >
+
+
+ 
+ 
+ 
+
+
+
 
 <ul>
    <li><a href='#'></a></li>
    
    <li>
 
-  <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree">
-        <a href="#/{{menu.predicate}}"><span>{{menu.title}} </span></a>
+  <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree" tabindex="{{$index + 2}}">
+        <a href="#/{{menu.predicate}}" ><span>{{menu.title}} </span></a>
         <ul data-ng-show="menu.children">
           <li class='has-sub' ng-repeat="submenu in menu.children">
               <a href="#/{{submenu.predicate}}"><span> {{submenu.title}}</span> </a>
-                  <!--<ul data-ng-show="menu.children">
-                    <li class='has-sub' ng-repeat="submenu in menu.children">
-                        <a href="{{submenu.url}}"><span> {{submenu.title}}</span> </a>
-                    </li>
-                  </ul> -->
+               
           </li>
         </ul>
   </li>
@@ -140,7 +148,7 @@
     
     
 </ul>
-</div>
+</div>  
       
      
         
@@ -155,8 +163,7 @@
       <resolve-loader ></resolve-loader>
 
 
-    
-
+     
 
 
  <div class="ng-cloak fadein" ng-view="" id="ng-view"  when-scroll-ends="loadMoreRecords()"></div>

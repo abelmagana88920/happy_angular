@@ -3825,7 +3825,7 @@ ul.h-list li:hover a {
   position: relative;
 }
 .cssmenu ul li.hover,
-.cssmenu ul li:hover {
+.cssmenu ul li:focus {
   position: relative;
   z-index: 599;
   cursor: default;
@@ -3845,7 +3845,7 @@ ul.h-list li:hover a {
   top: -2px;
   right: 0;
 }
-.cssmenu ul li:hover > ul {
+.cssmenu ul li:active > ul {
   visibility: visible;
 }
 .cssmenu ul ul {
