@@ -10,7 +10,7 @@
  
         // when blur in menu
 
-        /* document.getElementById('show-menu').addEventListener('blur', function () {
+         document.getElementById('show-menu').addEventListener('blur', function () {
 
                 
                         setTimeout(function() {
@@ -18,10 +18,8 @@
                             document.getElementById('wrapper').style.margin = '0 0 0 0';
                        }, 300); 
                   
-               
-            
           
-        }); */
+        });
 
 
         
