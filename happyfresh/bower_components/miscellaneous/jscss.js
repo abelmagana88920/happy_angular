@@ -1,6 +1,6 @@
  	 
          // when click on the menu
- 		/*document.getElementById('show-menu').addEventListener('focus', function () {
+ 		document.getElementById('show-menu').addEventListener('focus', function () {
             document.getElementById('menu').style.display = 'block';
             document.getElementById('wrapper').style.margin = '0 0 0 180px';
 
@@ -10,7 +10,7 @@
  
         // when blur in menu
 
-         document.getElementById('show-menu').addEventListener('blur', function () {
+      /*    document.getElementById('show-menu').addEventListener('blur', function () {
 
                 
                         setTimeout(function() {
@@ -22,24 +22,13 @@
         }); */
 
 
-        function headermenublur() {
-
-                 setTimeout(function() {
+         document.getElementById('wrapper').addEventListener('focus', function () {
+                    setTimeout(function() {
                             document.getElementById('menu').style.display = 'none';
                             document.getElementById('wrapper').style.margin = '0 0 0 0';
-               }, 300); 
-
-         };
-
-
-
-        function headermenufocus() {
-                 setTimeout(function() { 
-                      document.getElementById('menu').style.display = 'block';
-                      document.getElementById('wrapper').style.margin = '0 0 0 180px';
-                 }, 300);
-
-         };
+                       }, 300); 
+            
+        });
 
 
         
