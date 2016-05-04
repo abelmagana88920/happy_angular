@@ -79,7 +79,7 @@
             </div>
         </form> -->
       
-        <div class="navbar-right">
+        <div   class="navbar-right">
                
                <!--
             <ul class="nav navbar-nav no-borders">
@@ -110,7 +110,7 @@
 </div>
 
 <!-- Navigation -->
-<aside id="menu"  >
+<aside id="menu"  > <!-- 2 is set for -->
 
 
 
@@ -120,7 +120,7 @@
        
 
  
-<div class='cssmenu' >
+<div class='cssmenu'>
 
 
  
@@ -135,11 +135,11 @@
    
    <li>
 
-  <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree" tabindex="{{$index + 2}}">
-        <a href="#/{{menu.predicate}}" ><span>{{menu.title}} </span></a>
+  <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree"  >
+        <a href="#/{{menu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span>{{menu.title}} </span></a>
         <ul data-ng-show="menu.children">
           <li class='has-sub' ng-repeat="submenu in menu.children">
-              <a href="#/{{submenu.predicate}}"><span> {{submenu.title}}</span> </a>
+              <a href="#/{{submenu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span> {{submenu.title}}</span> </a>
                
           </li>
         </ul>
