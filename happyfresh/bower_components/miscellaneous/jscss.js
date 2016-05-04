@@ -30,6 +30,7 @@
         
 
         function menublur() {
+                  alert('dsds');
                  setTimeout(function() {
                             document.getElementById('menu').style.display = 'none';
                             document.getElementById('wrapper').style.margin = '0 0 0 0';
