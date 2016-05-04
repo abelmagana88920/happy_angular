@@ -3848,6 +3848,10 @@ ul.h-list li:hover a {
 .cssmenu ul li:active > ul {
   visibility: visible;
 }
+
+.cssmenu ul li:hover > ul {
+  visibility: visible;
+}
 .cssmenu ul ul {
   top: 1px;
   left: 99%;
