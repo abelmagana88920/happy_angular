@@ -2757,6 +2757,16 @@ h6 {
     overflow: hidden;
 
   }
+
+   #show-menu {
+     position:absolute;
+     top:6px;
+     left:0px;
+
+  }
+  #logo.light-version {
+    margin-left:67px;
+  }
 }
 /* when page is larger hide the menus */
 @media (max-width: 768px) {
@@ -2768,6 +2778,7 @@ h6 {
   aside#menu {
      display: none;
   }
+
 }
  
 /* page large cancel */
