@@ -2779,6 +2779,17 @@ h6 {
      display: none;
   }
 
+
+  #show-menu {
+     position:absolute;
+     top:6px;
+     left:0px;
+
+  }
+  #logo.light-version {
+    margin-left:67px;
+  }
+
 }
  
 /* page large cancel */
