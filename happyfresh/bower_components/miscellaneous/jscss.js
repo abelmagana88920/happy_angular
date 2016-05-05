@@ -71,6 +71,13 @@
          };
 
 
+        function horizontalmenufocus() {
+                 setTimeout(function() { 
+                        document.getElementById('menu-horizontal').style.display = 'none';
+                 }, 300);
+         };
+
+
       
 
 
