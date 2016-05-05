@@ -1794,6 +1794,16 @@ body {
 
 }
 
+.panel-group .panel + .panel{
+
+   margin-top:0px;
+}
+
+.panel-group {
+
+   margin-bottom:0px;
+}
+
 .hpanel > .panel-footer,
 .hpanel > .panel-section {
   color: inherit;
@@ -2434,7 +2444,7 @@ body.fullscreen-panel-mode {
   color: #9d9fa2;
 }
 .panel-title {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -2860,7 +2870,7 @@ h6 {
 }
 .dropdown-menu {
   font-size: 13px;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 .dropdown-example {
   display: inline-block;

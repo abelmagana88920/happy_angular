@@ -6,7 +6,7 @@
     $scope.menus = [
     { id:0 },
 
-    {   id:1, title: 'LIST & FAVORITES', pid:0 },
+    {   id:1, title: 'LIST & FAVORITES', pid:0, heading: true },
    	  {   id:2, title: 'Recommended', pid:0, indent: true },
       	{   id:3, title: 'Product 1', pid:2 },
    	   	   {   id:4, title: 'Sub Product', pid:3 },
@@ -17,7 +17,7 @@
 
    	  {   id:9, title: 'My Favorites', pid:0, indent: true},
 
-   	{   id:10, title: 'CATEGORIES', pid:0},
+   	{   id:10, title: 'CATEGORIES', pid:0, heading: true},
    	   {   id:11, title: 'Specials', pid:0, indent: true },
    	   {   id:12, title: 'Fresh Produce', pid:0, indent: true },
              {   id:13, title: 'Fresh Fruits', pid:12 },
@@ -47,6 +47,8 @@
         .replace(/ /gi, '')
         .replace(/&/gi,'')
     ); */
+
+
 
     $scope.menus = improveService.toPredicate($scope.menus);
   

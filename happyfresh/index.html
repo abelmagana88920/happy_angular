@@ -108,17 +108,31 @@
         </div>
 
 
-
-
-
-
-
-        
+  
      
-    <div id="menu-horizontal" style="clear:both; margin-left:20px; display:none;" class="row">
-          <div >
-            fdsfdsf
-          </div>
+    <div id="menu-horizontal" style="background-color: #fff;clear:both; margin-left:0px; display:none;" class="row">
+          
+            <accordion ng-repeat="menu in menuTree">
+                <accordion-group  heading="{{menu.title}}" ng-if="menu.heading"   >
+                         <div class="btn-group" ng-repeat="menu in menuTree">
+                          <ul id="multicol-menu" class="nav pull-right" ng-if="!menu.heading">
+                              <li class="dropdown" >
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{menu.title}} <b class="caret"></b></a>
+                                  <ul class="dropdown-menu" id="icons"> 
+                                       <li>dsadas
+                                        <li>dsadsa
+                                           <li>dsadsa
+
+
+                                  </ul>
+                              </li>
+                         
+                          </ul>
+                        </div>
+                </accordion-group>
+
+                
+            </accordion>     
 
     </div>
     
