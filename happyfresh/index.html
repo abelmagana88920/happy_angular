@@ -106,67 +106,94 @@
                 </li>
             </ul> -->
         </div>
+
+
+
+
+
+
+
+        
+     
+    <div id="menu-horizontal" style="clear:both; margin-left:20px; display:none;" class="row">
+          <div >
+            fdsfdsf
+          </div>
+
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
     </nav>
 </div>
 
+
+
 <!-- Navigation -->
-<aside id="menu"  > <!-- 2 is set for -->
-
-
-
-   
-   
- 
-       
-
- 
-<div class='cssmenu'>
-
-
- 
- 
- 
-
-
-
-
-<ul>
-   <li><a href='#'></a></li>
-   
-   <li>
-
-  <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree"  >
-        <a href="#/{{menu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span>{{menu.title}} </span></a>
-        <ul data-ng-show="menu.children">
-          <li class='has-sub' ng-repeat="submenu in menu.children">
-              <a href="#/{{submenu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span> {{submenu.title}}</span> </a>
-               
-          </li>
-        </ul>
-  </li>
-   
-    
-    
-</ul>
-</div>  
-      
-     
-        
-        
+<aside id="menu"     > <!-- 2 is set for -->
+    <div  class='cssmenu'  >
+            <ul>
+              <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menuTree"  >
+                    <a href="#/{{menu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span>{{menu.title}} </span></a>
+                    <ul data-ng-show="menu.children">
+                      <li class='has-sub' ng-repeat="submenu in menu.children">
+                          <a href="#/{{submenu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span> {{submenu.title}}</span> </a>
+                           
+                      </li>
+                    </ul>
+              </li>
+                         
+           </ul>  
     </div>
     
 </aside>
 
 
+
+
+
 <!-- Main Wrapper -->
 <div id="wrapper" tabindex="3" >
+
+
+
+ 
+  <link rel="stylesheet" href="ng-scrollbar/ng-scrollbar.css" >
+  <style>
+    .scrollme {
+      max-height: 200px;
+      width:300px;
+    }
+  </style>
+ 
+ 
+
+
+   
+     
+ 
+
+ 
+
+
+
+  
       <resolve-loader ></resolve-loader>
 
+      <div class="ng-cloak fadein" ng-view="" id="ng-view"  when-scroll-ends="loadMoreRecords()"></div>
+ 
 
-     
 
 
- <div class="ng-cloak fadein" ng-view="" id="ng-view"  when-scroll-ends="loadMoreRecords()"></div>
+
 
      
     <!-- Footer-->
@@ -207,6 +234,8 @@
 
 <script src="app/templateEditCtrl.js"></script>
 <script src="bower_components/miscellaneous/jscss.js"></script>
+
+ <script src="ng-scrollbar/ng-scrollbar.js"></script>
 <!-- App scripts -->
 
 
@@ -233,6 +262,9 @@
     wow.init();
    
   </script> 
+
+ 
+ 
 
 
     

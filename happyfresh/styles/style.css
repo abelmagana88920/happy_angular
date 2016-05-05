@@ -1514,7 +1514,15 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+
+
+
+
 }
+
+ 
+
+
 #header {
   background-color: #fff;
   display: block;
@@ -1531,6 +1539,7 @@ body {
   left: 0;
   position: absolute;
   top: 62px;
+
   transition: all 0.4s ease 0s;
 }
 #wrapper {
@@ -1592,10 +1601,15 @@ body {
 .fixed-sidebar #menu {
   position: fixed;
  
-  width: 197px;
+  width: 100%;
+  overflow-y:scroll;
+  overflow-x:hidden;
+
 }
 .fixed-sidebar.show-sidebar #menu {
   width: 180px;
+
+
 }
 .fixed-footer .footer {
   position: fixed;
@@ -1823,13 +1837,13 @@ body {
   margin-bottom: 12px;
 }
 
-.hpanel.fixed {
-
+#fixedhpanel {
    position: fixed;
    width: 100%;
    z-index:100;
    top: 62px;
 }
+
 .panel-tools {
   display: inline-block;
   float: right;

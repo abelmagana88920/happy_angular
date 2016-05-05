@@ -1,0 +1,42 @@
+ 
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script src="ng-scrollbar/ng-scrollbar.js"></script>
+  <link rel="stylesheet" href="ng-scrollbar/ng-scrollbar.css" >
+  <style>
+    .scrollme {
+      max-height: 200px;
+      width:300px;
+    }
+  </style>
+ 
+<body>
+
+<div ng-app="my">
+  <div class="container" ng-controller="myctrl">
+ 
+    <div class="well" >
+      <div class="scrollme" ng-scrollbar is-bar-shown="barShown">
+        <h1>Scroll me down!</h1>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="https://github.com/asafdav/ng-scrollbar">Learn more</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var myapp = angular.module('my', [  'ngScrollbar']);
+
+  myapp.controller('myctrl', function ($scope) {
+    
+
+  });
+</script>
+ 
+ 
