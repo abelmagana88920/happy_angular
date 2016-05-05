@@ -73,11 +73,7 @@
 
 
 
- window.addEventListener("resize", function() {
-  // Get screen size (inner/outerWidth, inner/outerHeight)
-      alert('ss');
-  
-}, false);
+ 
 
  /* window.onresize = function onresize() {
     var viewportmeta = document.querySelector('meta[name="viewport"]');
