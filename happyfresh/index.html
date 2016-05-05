@@ -121,7 +121,7 @@
                                      <b class="caret" ng-if="submenu.children.length != null"></b></a>
                                       <ul class="dropdown-menu" id="icons" ng-if="submenu.children.length != null" > 
                                            <li ng-repeat="submenu2 in submenu.children">
-                                                  {{submenu2.title}}
+                                                   <a href="#/{{submenu2.predicate}}"  ><span> {{submenu2.title}}</span> </a>
                                            </li>
                                       </ul>
                                    
