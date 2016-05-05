@@ -8,19 +8,13 @@
            } else {
 
                 document.getElementById('menu-horizontal').style.display = 'block';
-                 height_horizontal_menu = document.getElementById('menu-horizontal').offsetHeight;
-                document.getElementById('fixedhpanel').style.margin =  height_horizontal_menu + 'px 0 0 0';       
+                /* height_horizontal_menu = document.getElementById('menu-horizontal').offsetHeight;
+                document.getElementById('fixedhpanel').style.margin =  height_horizontal_menu + 'px 0 0 0';    
+                */   
                 
             }
     });
-
-    document.getElementById('menu-horizontal').addEventListener('click', function () {
-         setTimeout(function() {
-           height_horizontal_menu = document.getElementById('menu-horizontal').offsetHeight;
-           document.getElementById('fixedhpanel').style.margin =  height_horizontal_menu + 'px 0 0 0';       
-         }, 350);      
-
-   });
+ 
  
         // when blur in menu
 
@@ -72,9 +66,9 @@
 
 
         function horizontalmenufocus() {
-                
+                  setTimeout(function() { 
                         document.getElementById('menu-horizontal').style.display = 'none';
-              
+                   }, 500);
          };
 
 
