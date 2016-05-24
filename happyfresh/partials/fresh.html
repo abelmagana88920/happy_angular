@@ -14,7 +14,7 @@
             </div>
              <div id="hbreadcrumb" class="pull-left">
 
-                <ol class="hbreadcrumb left-center-right"  >
+                <!-- <ol class="hbreadcrumb left-center-right"  >
                     <li>  <span class="total-cart-counter label label-success" ng-cloak ng-click="openCart({});">   
                       {{menuCategory.title}} :  {{counterGlobal}}
                     </span>  </li>
@@ -24,10 +24,20 @@
                       <li>  <span class="total-cart-counter label label-danger" ng-cloak ng-click="clearCart({});"> 
                        X </span>  </li>
 
+                </ol> -->
 
-                  
-                 
+                <ol class="hbreadcrumb wrap"  >
+                    <li class="left">  <span class="total-cart-counter label label-success" ng-cloak ng-click="openCart({});">   
+                      {{menuCategory.title}} :  {{counterGlobal}}
+                    </span>  </li>
+
+                     <li class="center">  <span class="total-cart-counter label label-success" ng-cloak ng-click="totalCart({});">   Total Item(s):   </span>  </li>
+
+                      <li class="right">  <span class="total-cart-counter label label-danger" ng-cloak ng-click="clearCart({});"> 
+                       X </span>  </li>
+
                 </ol>
+
             </div>       
         </div>
     </div>

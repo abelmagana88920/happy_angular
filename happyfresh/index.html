@@ -8,7 +8,7 @@
     <meta content='True' name='HandheldFriendly' />
    <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
 
-   
+
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -116,7 +116,7 @@
      
     <div id="menu-horizontal"   class="row">
             <accordion ng-repeat="menu in menuTree">      
-                <accordion-group ng-init="isOpen = true && menu.id==10" is-open="isOpen"  heading="{{menu.title}}" ng-if="menu.heading"   >
+                <accordion-group ng-init="isOpen = true && menu.id==10" is-open="isOpen"  heading="{{menu.title}}" ng-if="menu.heading"   > <!-- 10 is category -->
                          <div class="btn-group" ng-repeat="submenu in menu.children">  
                           <ul id="multicol-menu" class="nav pull-right"  >
                               <li class="dropdown"  >
