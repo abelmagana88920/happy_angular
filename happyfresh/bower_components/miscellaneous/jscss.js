@@ -1,8 +1,8 @@
  	 
          // when click on the menu
  		document.getElementById('show-menu').addEventListener('focus', function () {
-
-           if (screen.width >= 1047) {
+             
+           if (screen.width >= 785) {
                document.getElementById('menu').style.display = 'block';
                document.getElementById('wrapper').style.margin = '0 0 0 180px';
            } else {
@@ -14,6 +14,8 @@
                 
             }
     });
+
+
  
  
         // when blur in menu

@@ -112,16 +112,16 @@
 
   
      
-    <div id="menu-horizontal" style="background-color: #fff;clear:both; margin-left:0px; display:none;" class="row">
+    <div id="menu-horizontal"   class="row">
             <accordion ng-repeat="menu in menuTree">      
-                <accordion-group  heading="{{menu.title}}" ng-if="menu.heading"   >
+                <accordion-group ng-init="isOpen = true && menu.id==10" is-open="isOpen"  heading="{{menu.title}}" ng-if="menu.heading"   >
                          <div class="btn-group" ng-repeat="submenu in menu.children">  
                           <ul id="multicol-menu" class="nav pull-right"  >
                               <li class="dropdown"  >
 
 
                                   <a href="#" ng-if="submenu.children.length != null" class="dropdown-toggle"   data-toggle="dropdown">
-                                     {{submenu.title}} 
+                                     {{submenu.title}}  
                                      <b class="caret" ng-if="submenu.children.length != null"></b>
                                   </a>
 
@@ -160,12 +160,12 @@
 
 <!-- Navigation -->
 <aside id="menu"     > <!-- 2 is set for -->
-    <div  class='cssmenu'  >
+    <div  class='cssmenu'  style="float:left;" >
             <ul>
-              <li ng-class="{true:'nav-second-level'}[menu.indent]" ng-repeat="menu in menus"  ng-if="menu.indent || menu.heading" >
+              <li ng-class="{true:'nav-second-level has-sub'}[menu.indent]" ng-repeat="menu in menus"  ng-if="menu.indent || menu.heading" >
                     <a href="#/{{menu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span>{{menu.title}} </span></a>
                     <ul data-ng-show="menu.children">
-                      <li class='has-sub' ng-repeat="submenu in menu.children">
+                      <li  ng-repeat="submenu in menu.children">
                           <a href="#/{{submenu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span> {{submenu.title}}</span> </a>
                            
                       </li>
@@ -174,6 +174,8 @@
                          
            </ul>  
     </div>
+
+     
     
 </aside>
 
