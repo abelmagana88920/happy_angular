@@ -349,7 +349,8 @@ body.modal-open {
   background: #f7f9fa;
 }
 .modal-body {
-  padding: 20px 30px;
+  /* padding: 20px 30px; */
+  padding: 0;
 
   height: 400px;
   overflow: auto;

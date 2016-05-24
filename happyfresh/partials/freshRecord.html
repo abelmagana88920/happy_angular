@@ -1,8 +1,8 @@
 
-  <div   class="{{sizeGrid}} {{wowValue}} fadeInDown " data-wow-duration="{{productObject.data[index].dataDuration}}ms">
+  <div  class="{{sizeGrid}} {{wowValue}} fadeInDown" data-wow-duration="{{productObject.data[index].dataDuration}}ms">
                
-                <div class="hpanel stats">
-                  
+        <div class="hpanel stats" >
+                
                     <div class="panel-body img-responsive">
                       
                         <!--<div class="left-center-right">
@@ -26,15 +26,26 @@
                           </div>
                       </div>
 
-                         <div class="row visible-md visible-lg">
-                              <img class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
+                         <div class="row visible-md visible-lg"  >
+                              <img style="width:100%;height:auto;" src="{{'image_download/' + productObject.data[index].img}}">
                         </div>
                       
-                        <div class="row visible-xs visible-sm">
-                            <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
-                              <img class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
+                        <div class="row visible-xs visible-sm" >
+                            <div class="col-md-3 col-lg-1 vcenter" 
+
+                            ng-class="{'col-xs-3': modalDisplay == 'true', 
+                                      'col-xs-5': modalDisplay == null}"
+                            style="padding:0"
+                            >
+                              <img style="width:100%;height:auto;" src="{{'image_download/' + productObject.data[index].img}}">
                             </div>
-                            <div class="col-xs-5 col-md-7 col-lg-9 vcenter" >
+                            <div class="col-md-7 col-lg-9 vcenter" 
+
+
+                             ng-class="{'col-xs-7': modalDisplay == 'true', 
+                                      'col-xs-5': modalDisplay == null}"
+                            style="padding:0"
+                            >
                                 <!--<div><br><br><br><br></div> -->
                                <h4>{{productObject.data[index].name}}</h4>
                                <h5 class="product_price">{{productObject.data[index].price}} / {{productObject.data[index].per}}</h5>
@@ -81,9 +92,9 @@
                     </div>
 
 
-                </div>
+         </div>
             
-            </div>
+</div>
 
 
 
