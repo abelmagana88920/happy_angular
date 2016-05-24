@@ -4099,3 +4099,21 @@ ul.h-list li:hover a {
   flex-direction: row;             /* default value; can be omitted */
   flex-wrap: nowrap;  
 } 
+
+.wrap{
+    text-align:center
+}
+.left{
+    float: left;
+    background:grey
+}
+.right{
+    float: right;
+    background:red
+}
+.center{
+text-align:left;
+    background:green;
+    margin:0 auto !important; 
+   display:inline-block
+}
