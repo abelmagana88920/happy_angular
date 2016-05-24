@@ -2833,6 +2833,12 @@ h6 {
     width:100%
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     background-color: #eb0d8b;
     color: #fff;

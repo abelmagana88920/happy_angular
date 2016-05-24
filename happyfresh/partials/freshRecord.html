@@ -1,5 +1,5 @@
 
-  <div   class="{{sizeGrid}} {{wowValue}} fadeInDown" data-wow-duration="{{productObject.data[index].dataDuration}}ms">
+  <div   class="{{sizeGrid}} {{wowValue}} fadeInDown " data-wow-duration="{{productObject.data[index].dataDuration}}ms">
                
                 <div class="hpanel stats">
                   
@@ -7,9 +7,9 @@
                       
                        <div class="left-center-right">
                           <div>{{productObject.data[index].counter}} </div>
-                            <div>PRCAT {{productObject.data[index].category}} </div>
+                           <!-- <div>PRCAT {{productObject.data[index].category}} </div>
 
-                              <div>URLCAT {{menuCategory.id}} </div>
+                              <div>URLCAT {{menuCategory.id}} </div> -->
                           <div> <a ng-click="count_cart('reset')"> X </a></div>
                        </div>
 
@@ -19,11 +19,11 @@
                         </div>
                       
                         <div class="row visible-xs visible-sm">
-                            <div class="col-xs-6">
+                            <div class="col-xs-5 col-md-3 col-lg-1 vcenter">
                               <img class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
                             </div>
-                            <div class="col-xs-6" >
-                                <div><br><br><br><br></div>
+                            <div class="col-xs-5 col-md-7 col-lg-9 vcenter" >
+                                <!--<div><br><br><br><br></div> -->
                                <h4>{{productObject.data[index].name}}</h4>
                                <h5 class="product_price">{{productObject.data[index].price}} / {{productObject.data[index].per}}</h5>
                                <br>  
