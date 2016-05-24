@@ -4094,5 +4094,7 @@ ul.h-list li:hover a {
 
 .left-center-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;              /* establish flex container */
+  flex-direction: row;             /* default value; can be omitted */
+  flex-wrap: nowrap;  
 } 
