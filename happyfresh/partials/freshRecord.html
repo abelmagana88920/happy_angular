@@ -13,7 +13,7 @@
                           <div> <a ng-click="count_cart('reset')"> X </a></div>
                        </div> -->
 
-                       <div class="wrap">
+                       <div class="wrap visible-md visible-lg">
                           <div class="left">
                              {{productObject.data[index].counter}}
                           </div>
@@ -37,37 +37,38 @@
                                       'col-xs-5': modalDisplay == null}"
                             style="padding:0"
                             >
-                              <img style="width:100%;height:auto;" src="{{'image_download/' + productObject.data[index].img}}">
+                                  <img style="width:100%;height:auto;" src="{{'image_download/' + productObject.data[index].img}}">
                             </div>
                             <div class="col-md-7 col-lg-9 vcenter" 
-
-
-                             ng-class="{'col-xs-7': modalDisplay == 'true', 
+                               ng-class="{'col-xs-7': modalDisplay == 'true', 
                                       'col-xs-5': modalDisplay == null}"
-                            style="padding:0"
+                               style="padding:0"
                             >
-                                <!--<div><br><br><br><br></div> -->
-                               <h4>{{productObject.data[index].name}}</h4>
-                               <h5 class="product_price">{{productObject.data[index].price}} / {{productObject.data[index].per}}</h5>
-                               <br>  
-                               Available Stock: {{ productObject.data[index].availablestock }}
-                                  <br>
-                                   {{ left }}
-                                  <br>
+                                    <!--<div><br><br><br><br></div> -->
+                                   <h4>{{productObject.data[index].name}}</h4>
 
-                              <br>{{productObject.data[index].subname}}
-                              <br>
+                                   <h5 class="product_price"
+                                       ng-if="modalDisplay != 'true'"
 
-                                    <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                       <span class="cart-quantity"> {{productObject.data[index].counter}} </span>                                       
-                                   <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
-                            
+                                   >{{productObject.data[index].price}} / {{productObject.data[index].per}}</h5>
+                                   <div ng-if="modalDisplay != 'true'">  
+                                       Available Stock: {{ productObject.data[index].availablestock }}
+                                   </div> 
+
+                                      <br ng-if="modalDisplay != 'true'">
+                                       {{ left }}
+                                      <br ng-if="modalDisplay != 'true'">
+
+                                   <div ng-if="modalDisplay != 'true'">
+                                      {{productObject.data[index].subname}}
+                                   </div>
+                                   <div>
+                                        <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
+                                           <span class="cart-quantity"> {{productObject.data[index].counter}} </span>                                       
+                                       <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                                   </div>                   
                             </div>
-
-
-
                         </div>
-
                     </div>
                    
 
