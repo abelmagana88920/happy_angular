@@ -30,7 +30,9 @@
                                ng-class="{'maxminheight110': modalDisplay == 'true', 
                                       'maxminheight225': modalDisplay == null}"
                                >
-                              <img dynamic-position-image class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
+
+
+                              <img dynamic-position-image="modalDisplay" class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}" onError="this.onerror=null;this.src='image_download/noimage.png';" >
                         </div>
                       
                         <div class="row visible-xs visible-sm" >
@@ -40,7 +42,8 @@
                                       'col-xs-5': modalDisplay == null}"
                             style="padding:0"
                             >
-                                  <img style="width:100%;height:auto;" src="{{'image_download/' + productObject.data[index].img}}">
+                                  <img dynamic-position-image="modalDisplay" class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}" 
+                                  onError="this.onerror=null;this.src='image_download/noimage.png';">
                             </div>
                             <div class="col-md-7 col-lg-9 vcenter" 
                                ng-class="{'col-xs-7': modalDisplay == 'true', 

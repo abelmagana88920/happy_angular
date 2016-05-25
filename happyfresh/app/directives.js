@@ -170,16 +170,25 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
       };
 });
 
-app.directive('dynamicPositionImage', function() {
+app.directive('dynamicPositionImage', function($compile, $parse) {
   return {
       restrict: 'AC',
       link: function($scope, element, attrs) {
+     
+          valueOfDynamic =  $parse(element.attr('dynamic-position-image'))($scope);
+          if (valueOfDynamic == 'true') full_size = 100;
+          else full_size = 210;
 
           element.bind('load', function() {
               element[0].style.margin = "auto";
               if (element[0].width > element[0].height) {
-                  element[0].style.marginTop = (element[0].width -  element[0].height)/2 + 'px';  
+                  element[0].style.marginTop = (element[0].width -  element[0].height)/2 + 'px';     
               }
+
+              var computed_size =  full_size / (element[0].height / element[0].width);
+              element[0].width = computed_size;
+            
+            
          });
       }
   };
