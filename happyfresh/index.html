@@ -166,7 +166,7 @@
             <ul>
               <li ng-class="{true:'nav-second-level has-sub'}[menu.indent]" ng-repeat="menu in menus"  ng-if="menu.indent || menu.heading" >
                     <a href="#/{{menu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span>{{menu.title}} </span></a>
-                    <ul data-ng-show="menu.children">
+                    <ul data-ng-show="menu.children" ng-if="menu.id!=10 && menu.id!=1">
                       <li  ng-repeat="submenu in menu.children">
                           <a href="#/{{submenu.predicate}}" onfocus="menufocus();" onblur="menublur();"><span> {{submenu.title}}</span> </a>
                            
