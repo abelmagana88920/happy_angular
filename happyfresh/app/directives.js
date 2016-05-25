@@ -181,7 +181,7 @@ app.directive('dynamicPositionImage', function($compile, $parse) {
 
           element.bind('load', function() {
               element[0].style.margin = "auto";
-              if (element[0].width > element[0].height) {
+              if (element[0].width > element[0].height && valueOfDynamic != 'true') {
                   element[0].style.marginTop = (element[0].width -  element[0].height)/2 + 'px';     
               }
 
