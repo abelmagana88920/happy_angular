@@ -4118,11 +4118,21 @@ ul.h-list li:hover a {
     
 }
 .center{
-text-align:left;
+    text-align:left;
     background:green;
     margin:0 auto !important; 
    display:inline-block
 }
 .label {
       line-height: 2;
+}
+
+.maxminheight225 {
+   min-height:225px;
+   max-height:225px;
+}
+
+.maxminheight110 {
+   min-height:110px;
+   max-height:110px;
 }

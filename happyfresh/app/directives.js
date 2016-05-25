@@ -170,6 +170,21 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
       };
 });
 
+app.directive('dynamicPositionImage', function() {
+  return {
+      restrict: 'AC',
+      link: function($scope, element, attrs) {
+
+          element.bind('load', function() {
+              element[0].style.margin = "auto";
+              if (element[0].width > element[0].height) {
+                  element[0].style.marginTop = (element[0].width -  element[0].height)/2 + 'px';  
+              }
+         });
+      }
+  };
+});
+
 /*******************LOADING DIRECTIVES*******************************************/
 
 app.directive('showDuringResolve', function($rootScope) {

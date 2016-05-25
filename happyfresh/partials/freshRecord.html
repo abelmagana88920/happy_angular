@@ -20,14 +20,17 @@
                           <div class="right">
                               <a ng-click="count_cart('reset')"> X </a>
                           </div>
-                          <div class="center">
+                          <div class="center" ng-if="modalDisplay != 'true'">
                               PRCAT {{productObject.data[index].category}} 
                                URLCAT {{menuCategory.id}} 
                           </div>
                       </div>
 
-                         <div class="row visible-md visible-lg"  >
-                              <img style="width:100%;height:auto;" src="{{'image_download/' + productObject.data[index].img}}">
+                         <div class="row visible-md visible-lg" 
+                               ng-class="{'maxminheight110': modalDisplay == 'true', 
+                                      'maxminheight225': modalDisplay == null}"
+                               >
+                              <img dynamic-position-image class="img-responsive" src="{{'image_download/' + productObject.data[index].img}}">
                         </div>
                       
                         <div class="row visible-xs visible-sm" >
