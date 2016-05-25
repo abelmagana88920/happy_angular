@@ -1,8 +1,9 @@
-app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templateCache, $route, $routeParams ,improveService, variableService, Data, localStorageService) {
+app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templateCache, $route, $routeParams ,improveService, variableService, Data, localStorageService,_) {
    
     var r_categoryPredicate = $routeParams.category; // get the category parameter
     var s_pMenus = $scope.$parent.menus;
     $scope.menuCategory = _.findWhere(s_pMenus, {predicate: r_categoryPredicate}); // convert the predicate to the object with id, title, predicate, pid so more
+  
     var s_menuCategory = $scope.menuCategory;
    
     $scope.paramTableName = $route.current.$$route.paramTableName; //product
@@ -187,12 +188,19 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
         });
     };
 
+    $scope.fetchMenuName = function(key) {
+          var menu_object = _.findWhere(s_pMenus, {id: parseInt(key)});
+          return menu_object.title;
+    };
+
 
     $scope.$emit('responseCounter', $scope.counter); // call the function on the parent global controller   
     variableService.passed($scope,variableService); //global passed all scope
        
 
 });
+
+
 
 
 

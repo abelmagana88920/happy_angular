@@ -63,6 +63,9 @@
 
                                       <br ng-if="modalDisplay != 'true'">
                                        {{ left }}
+                                       <div>
+                                           Computed Price: {{ productObject.data[index].price * productObject.data[index].counter }}
+                                       </div>
                                       <br ng-if="modalDisplay != 'true'">
 
                                    <div ng-if="modalDisplay != 'true'">
@@ -89,6 +92,8 @@
                                   Available Stock: {{ productObject.data[index].availablestock }}
                                   <br>
                                     {{ left }}
+                                  <br>
+                                     Computed Price: {{ productObject.data[index].price * productObject.data[index].counter }}
                                   <br>
                                   <br>
                                   <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
