@@ -29,7 +29,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
              //  merge the Local Storage then put to the Existing data then remove duplicates
              // note: Parent body not in modal          
     }
-
+    
 
     $scope.counter = 0;
     //$scope.counter = []; //update a number to an array of objects
@@ -128,6 +128,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
  
 
   $scope.loadMoreRecords = function() {
+
         $scope.display.DivideRecords++;
          for (var i=($scope.display.IndexRecord); i<=($scope.display.NumRecords*$scope.display.DivideRecords); i++) {
             if ($scope.RecordData.data[i] !== undefined) {
@@ -135,10 +136,20 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                 $scope.product.data.push($scope.RecordData.data[i]);
                 $scope.display.IndexRecord++;
             } 
-        }           
-    };
+        }
 
+                    
+  };
+
+  $scope.filterSearch = function() {
+
+        $scope.RecordData.data = $filter('filter')($scope.RD.data, {name: $scope.search}); 
+         $scope.product.data = $filter('filter')($scope.RecordData.data, {name: $scope.search}); 
+       
+  };
+   
    $scope.loadMoreRecords(); //load initial or more records
+   
 
    $scope.clearCart = function() {
           $scope.productSave.data = [];
@@ -234,6 +245,8 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            });
            return i + ' for ' + total_price;
     };
+
+   
 
     $scope.productSaveIndexTotal = {}; //initialization
     for ( var i = 0, len = sessionStorage.length; i < len; ++i ) {    

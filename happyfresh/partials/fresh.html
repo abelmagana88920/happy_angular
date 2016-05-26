@@ -79,8 +79,13 @@
 
 
         <div class="row">
-
-
+        {{productFilter}}
+        <!--{{search}}
+        
+        <br><br>   
+        {{product.data}} -->
+          <label>Name: <input ng-model="search" ng-change="filterSearch()"></label> <br>
+          
            <product-cart style="overflow: visible;" ng-repeat="pr in product.data" product-object="product" number-object="number" index="{{$index}}" parent="{{$parent}}" wow-value="wow" size-grid="col-md-3" menu-category="menuCategory">
           </product-cart>
 
