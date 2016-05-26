@@ -159,6 +159,21 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                     $scope.$parent.$parent.productSave = productStorage;
 
                     $scope.$emit('responseCounter', $scope.$parent.$parent.counter);
+
+
+                      //product Save Index Total in fresh ctrl duplicates function
+                      $scope.$parent.$parent.productSaveIndexTotal = {}; //initialization
+                           for ( var i = 0, len = sessionStorage.length; i < len; ++i ) {    
+                               // objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
+                                numb = improveService.stringGetNumber(sessionStorage.key( i ));
+                                if (localStorageService.get('productStorage['+numb+']') !== null) {
+                                    $scope.$parent.$parent.productSaveIndexTotal[numb] = localStorageService.get('productStorage['+numb+']'); // get  product cart directives
+                                    $scope.$parent.$parent.productSaveIndexTotal[numb].data = _.where($scope.$parent.$parent.productSaveIndexTotal[numb].data, {category: numb});  
+                                }
+                      }  
+
+
+
              }; 
         },
        

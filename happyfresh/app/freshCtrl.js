@@ -144,6 +144,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           $scope.productSave.data = [];
           $scope.display = angular.copy($scope.displayInitial);
           $scope.product.data = [];
+          $scope.productSaveIndexTotal = {};
           $scope.RecordData = angular.copy($scope.RD); //initial data
           $scope.$emit('responseCounter', 0); 
          
@@ -223,6 +224,16 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            });
            return i + ' for ' + total_price;
     };
+
+    $scope.productSaveIndexTotal = {}; //initialization
+    for ( var i = 0, len = sessionStorage.length; i < len; ++i ) {    
+           // objectPr =  JSON.parse( localStorage.getItem( localStorage.key( i ) )  );
+            numb = improveService.stringGetNumber(sessionStorage.key( i ));
+            if (localStorageService.get('productStorage['+numb+']') !== null) {
+                $scope.productSaveIndexTotal[numb] = localStorageService.get('productStorage['+numb+']'); // get  product cart directives
+                $scope.productSaveIndexTotal[numb].data = _.where($scope.productSaveIndexTotal[numb].data, {category: numb});  
+            }
+    }  
 
 
     $scope.$emit('responseCounter', $scope.counter); // call the function on the parent global controller   
