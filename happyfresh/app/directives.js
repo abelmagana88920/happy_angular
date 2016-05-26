@@ -128,9 +128,9 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
              var s_index = $scope.index;
              var s_productObject = $scope.productObject;
              var available_stock = s_productObject.data[s_index].availablestock == undefined ? (99999999999):s_productObject.data[s_index].availablestock;
-            
+             var s_menuCategory = $scope.menuCategory;
              s_productObject.data[s_index].availablestock = s_productObject.data[s_index].availablestock == undefined ? 'Always Available': s_productObject.data[s_index].availablestock;
-          
+        
              if (s_productObject.data[s_index].counter == null ) s_productObject.data[s_index].counter=0;
 
              $scope.count_cart = function(operation) {
@@ -148,6 +148,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                      // when  zero clear the counter property
 
                     $scope.$parent.$parent.counter = parseInt(improveService.selectedCount(s_productObject.data).counter);
+                  
                     //  count the number of counter property in a cart using Improve Service
 
                     productStorage = {}

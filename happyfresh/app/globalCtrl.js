@@ -48,9 +48,7 @@
         .replace(/&/gi,'')
     ); */
 
-    $scope.aler = function() {
-         alert('');
-    };
+ 
 
     $scope.menus = improveService.toPredicate($scope.menus);
   

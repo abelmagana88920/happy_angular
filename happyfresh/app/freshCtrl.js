@@ -32,6 +32,8 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
 
 
     $scope.counter = 0;
+    //$scope.counter = []; //update a number to an array of objects
+
     $scope.img_folder = 'image_download/';
 
    
@@ -188,9 +190,12 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
         });
     };
 
-    $scope.fetchMenuName = function(key) {
+    $scope.fetchMenuName = function(key,objectData) {
+          //console.log(objectData);
           var menu_object = _.findWhere(s_pMenus, {id: parseInt(key)});
-          return menu_object.title;
+          var counter = improveService.selectedCount(objectData);
+          console.log(counter);
+          return menu_object.title + ': ' + counter.counter;
     };
 
 

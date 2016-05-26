@@ -10,13 +10,13 @@
       <div ng-repeat="(key,pSI) in productSaveIndexTotal">
 
          <div style="clear:both; margin-left:15px;" class="row">
-            <span class="total-cart-counter label label-success" ng-cloak ng-click="openCart({});">   
-                   {{fetchMenuName(key)}}   
+            <span class="total-cart-counter label label-success" ng-cloak">   
+                   {{fetchMenuName(key,pSI.data)}} 
            </span>
         </div>
 
         <br>
-        <br>
+        
 
          <product-cart style="overflow: visible;" ng-repeat="pr in pSI.data" product-object="pSI" number-object="number" index="{{$index}}" parent="{{$parent}}"  total-cart="true" size-grid="col-md-2" modal-display="true" menu-category="menuCategory">
             
