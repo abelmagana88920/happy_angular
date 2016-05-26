@@ -16,7 +16,8 @@
  
                 <ol class="hbreadcrumb left-center-right"  >
                     <li>  <span class="total-cart-counter label label-success" ng-cloak ng-click="openCart({});">   
-                      {{menuCategory.title}} :  {{counterGlobal}}
+                      {{fetchMenuName(menuCategory.id,product.data)}} 
+                      <!--{{menuCategory.title}} :  {{counterGlobal}} -->
                     </span>  </li> &nbsp;
 
                      <li>  <span class="total-cart-counter label label-success" ng-cloak ng-click="totalCart({});">   <i class="glyphicon glyphicon glyphicon-shopping-cart fa-1x" ></i>   </span>  </li> &nbsp;

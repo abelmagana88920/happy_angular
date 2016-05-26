@@ -59,6 +59,7 @@ app.service('improveService', function() {
 
 
     this.uniqueList = function(arrObjectData) {
+            if (Array.isArray(arrObjectData) == false) arrObjectData = [arrObjectData];
             uniqueListData = _.uniq(arrObjectData, function(item, key, id) { 
                 return item.id;
             });
@@ -69,6 +70,7 @@ app.service('improveService', function() {
 
 
     this.selectedCount = function(arrObjectData) {
+           if (Array.isArray(arrObjectData) == false) arrObjectData = [arrObjectData];
             selectedCountData = _.countBy(arrObjectData, function(num) {
               return (num.counter != 0 && num.counter != undefined) ? 'counter': 'left';
            }); 
@@ -78,6 +80,7 @@ app.service('improveService', function() {
     };
 
     this.findingSorted = function(arrObjectData, property) {
+          if (Array.isArray(arrObjectData) == false) arrObjectData = [arrObjectData];
                     findingCounter  =  _.filter(arrObjectData, function(pO){ return _.has(pO,property) && pO[property] != 0; });
                     sorted =  _.sortBy(findingCounter, function(o) { return o[property]; });
 

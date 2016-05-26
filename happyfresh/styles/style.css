@@ -1793,7 +1793,7 @@ body {
 
 .total-cart-counter {
 
-  font-size: 14px;
+  font-size: 12px;
 
 }
 
@@ -4125,6 +4125,7 @@ ul.h-list li:hover a {
 }
 .label {
       line-height: 2;
+      font-weight:normal;
 }
 
 .maxminheight225 {

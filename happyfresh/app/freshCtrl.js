@@ -199,8 +199,29 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           //console.log(objectData);
           var menu_object = _.findWhere(s_pMenus, {id: parseInt(key)});
           var counter = improveService.selectedCount(objectData);
-          console.log(counter);
-          return menu_object.title + ': ' + counter.counter;
+          var sub_computedprice = 0;
+
+          _.each(objectData, function(objectResult) {
+                 sub_computedprice += objectResult.price * objectResult.counter;
+             
+          });
+
+
+          return menu_object.title + ' : ' + counter.counter + ' for ' + sub_computedprice;
+    };
+
+    $scope.fetchTotalItemsPrice = function(objectData) {
+            var total_price = 0;
+            var i=0;
+           _.each(objectData, function(objectParentResult) {
+                _.each(objectParentResult.data, function(objectChildResult) {
+                      var counter = improveService.selectedCount(objectChildResult);
+                     // console.log(objectChildResult);
+                     i += counter.counter;
+                     total_price +=  objectChildResult.price * objectChildResult.counter;
+                });
+           });
+           return i + ' for ' + total_price;
     };
 
 

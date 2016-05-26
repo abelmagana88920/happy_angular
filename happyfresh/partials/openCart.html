@@ -7,11 +7,12 @@
   <div class="modal-body">
       <div style="clear:both; margin-left:15px;">
          <span class="total-cart-counter label label-success" ng-cloak">     
-                    {{menuCategory.title}} : {{counterGlobal}}
+                     {{fetchMenuName(menuCategory.id,product.data)}} 
+                      <!--{{menuCategory.title}} :  {{counterGlobal}} -->
          </span>
       </div>
         <br>
-        <br>
+     
     
 	   <product-cart style="overflow: visible; bottom; 300px;" ng-repeat="pr in productSave.data" product-object="productSave" number-object="number" index="{{$index}}" parent="{{$parent}}" size-grid="col-md-2" modal-display="true"  menu-category="menuCategory">
 	    </product-cart>

@@ -143,7 +143,7 @@ app.directive('productCart', function($compile, $parse, $filter, localStorageSer
                            s_productObject.data[s_index].counter=0;
  
                     $scope.left = s_productObject.data[s_index].availablestock == 'Always Available' ? '' : 'Will left: ' + (available_stock - s_productObject.data[s_index].counter);
-                    $scope.computedprice = s_productObject.data[s_index].price * s_productObject.data[s_index].counter;
+                    //$scope.computedprice = s_productObject.data[s_index].price * s_productObject.data[s_index].counter;
                     // if ( $scope.productObject.data[$scope.index].counter == 0) delete($scope.productObject.data[$scope.index].counter);
                      // when  zero clear the counter property
 
