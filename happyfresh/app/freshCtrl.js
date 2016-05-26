@@ -89,6 +89,8 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
            
            
     ]; //initial Data
+ 
+   
 
     $scope.RD.data = _.where(databaseRD, {category: s_menuCategory.id}); // query where id = routeCategory ID
      
@@ -142,9 +144,9 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
   };
 
   $scope.filterSearch = function() {
-
+       /* if ($scope.search == '') $route.reload();
         $scope.RecordData.data = $filter('filter')($scope.RD.data, {name: $scope.search}); 
-         $scope.product.data = $filter('filter')($scope.RecordData.data, {name: $scope.search}); 
+         $scope.product.data = $filter('filter')($scope.RecordData.data, {name: $scope.search});  */
        
   };
    
@@ -258,6 +260,29 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
             }
     }  
 
+    $scope.filterSearch = function(strings) {  
+        
+        if (strings == undefined || strings == '') strings = ' ';
+           strings = strings.toLowerCase();
+       
+
+         var search =  $scope.search;
+         if (search == undefined) search = '';
+
+         search = search.toLowerCase().replace(/\s\s+/g, ' ');
+         console.log(search);
+
+
+         regexp = new RegExp( "^.*" + search + ".*$");
+         
+        
+        if (strings.match(search)) {
+             return true;
+        } else {
+            return false;
+        }
+
+    };
 
     $scope.$emit('responseCounter', $scope.counter); // call the function on the parent global controller   
     variableService.passed($scope,variableService); //global passed all scope
