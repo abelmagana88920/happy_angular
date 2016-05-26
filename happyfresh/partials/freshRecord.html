@@ -14,15 +14,15 @@
                        </div> -->
 
                        <div class="wrap visible-md visible-lg">
-                          <div class="left">
+                          <div class="left" style="font-size: 13px;">
                              {{productObject.data[index].counter}}
                           </div>
                           <div class="right">
-                              <a ng-click="count_cart('reset')"> X </a>
+                              <a ng-click="count_cart('reset')"> <i class="glyphicon glyphicon glyphicon-remove-sign fa-2x" ></i> </a>
                           </div>
                           <div class="center" ng-if="modalDisplay != 'true'">
-                              PRCAT {{productObject.data[index].category}} 
-                               URLCAT {{menuCategory.id}} 
+                             <!-- PRCAT {{productObject.data[index].category}} 
+                               URLCAT {{menuCategory.id}}  -->
                           </div>
                       </div>
 
@@ -72,9 +72,13 @@
                                       {{productObject.data[index].subname}}
                                    </div>
                                    <div>
-                                        <i ng-init="count=0;" ng-click="count_cart('minus')" class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i>
-                                           <span class="cart-quantity"> {{productObject.data[index].counter}} </span>                                       
-                                       <i ng-init="count=0;" ng-click="count_cart('plus')" class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                                         <a ng-click="count_cart('reset')"> <i class="glyphicon glyphicon glyphicon-remove-sign fa-2x" ></i> </a>
+
+                                         <a ng-click="count_cart('minus')"><i ng-init="count=0;"  class="counter-button glyphicon glyphicon glyphicon-minus fa-2x" ></i> </a>
+
+                                           <span class="cart-quantity"> {{productObject.data[index].counter}} </span>  
+                                         <a ng-click="count_cart('plus')"><i ng-init="count=0;"  class="counter-button glyphicon glyphicon glyphicon-plus fa-2x"></i>
+                                         </a>
                                    </div>                   
                             </div>
                         </div>

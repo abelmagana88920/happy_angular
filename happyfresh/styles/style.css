@@ -354,6 +354,7 @@ body.modal-open {
 
   height: 400px;
   overflow: auto;
+  overflow-x:hidden;
 }
 .modal-header small {
   color: #9d9fa2;
@@ -4126,6 +4127,10 @@ ul.h-list li:hover a {
 .label {
       line-height: 2;
       font-weight:normal;
+}
+
+.label-success:hover, .label-danger:hover {
+      background-color: #EB0D8B;
 }
 
 .maxminheight225 {
