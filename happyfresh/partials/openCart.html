@@ -5,9 +5,10 @@
 
   <br>
   <div class="modal-body">
-      <div style="clear:both; margin-left:15px;">
+      <div ng-if="fetchCounter(product.data) != '0 for 0'" style="clear:both; margin-left:15px;">
          <span class="total-cart-counter label label-success" ng-cloak">     
-                     {{fetchMenuName(menuCategory.id,product.data)}} 
+                      {{fetchMenuName(menuCategory.id)}} : {{fetchCounter(product.data)}}
+
                       <!--{{menuCategory.title}} :  {{counterGlobal}} -->
          </span>
       </div>

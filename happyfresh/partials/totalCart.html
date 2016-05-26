@@ -10,11 +10,11 @@
 	    
     
        
-      <div ng-repeat="(key,pSI) in productSaveIndexTotal">
+      <div ng-if="fetchCounter(pSI.data) != '0 for 0'" ng-repeat="(key,pSI) in productSaveIndexTotal">
 
          <div style="clear:both; margin-left:15px;" class="row">
             <span class="total-cart-counter label label-success" ng-cloak">   
-                   {{fetchMenuName(key,pSI.data)}} 
+                   {{fetchMenuName(key)}} : {{fetchCounter(pSI.data)}}
            </span>
         </div>
 
