@@ -159,7 +159,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                 controller: 'openCartCtrl',
                 size: 'lg',
                 scope:$scope,
-                backdrop: 'static',
+                //backdrop: 'static',
                 resolve: {
                   item: function () {
                     return p;
@@ -177,7 +177,7 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
                 controller: 'totalCartCtrl',
                 size: 'lg',
                 scope:$scope,
-                backdrop: 'static',
+               // backdrop: 'static',
                 resolve: {
                   item: function () {
                     return p;
@@ -186,8 +186,13 @@ app.controller('freshCtrl', function ($scope, $modal, $filter, $timeout, $templa
           });
 
         modalInstance.result.then(function(selectedObject) {
-               $route.reload();     
+            $route.reload();      
+        }, function () {
+            $route.reload();  
         });
+
+
+
     };
 
     $scope.fetchMenuName = function(key,objectData) {
